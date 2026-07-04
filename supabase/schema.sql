@@ -1,3 +1,59 @@
+
+DROP TABLE IF EXISTS public.orders CASCADE;
+DROP TABLE IF EXISTS public.cart_sessions CASCADE;
+DROP TABLE IF EXISTS public.articles CASCADE;
+DROP TABLE IF EXISTS public.ingredients CASCADE;
+DROP TABLE IF EXISTS public.skin_concerns CASCADE;
+DROP TABLE IF EXISTS public.reviews CASCADE;
+DROP TABLE IF EXISTS public.faq CASCADE;
+DROP TABLE IF EXISTS public.products CASCADE;
+DROP TABLE IF EXISTS public.collections CASCADE;
+DROP TABLE IF EXISTS public.profiles CASCADE;
+
+-- Create Profiles Table (Linked to Supabase Auth)
+CREATE TABLE IF NOT EXISTS public.profiles (
+    id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()),
+    email TEXT,
+    whatsapp_number TEXT,
+    role TEXT DEFAULT 'customer'::text CHECK (role IN ('customer', 'admin')),
+    shipping_address JSONB
+);
+
+-- Enable RLS
+ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
+
+-- Policies for Profiles
+CREATE POLICY "Users can read own profile" 
+    ON public.profiles FOR SELECT USING (auth.uid() = id);
+
+CREATE POLICY "Users can update own profile" 
+    ON public.profiles FOR UPDATE USING (auth.uid() = id);
+
+CREATE POLICY "Admin can access all profiles" 
+    ON public.profiles FOR ALL USING (
+        auth.jwt() ->> 'role' = 'service_role' OR 
+        (EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role = 'admin'))
+    );
+
+
+-- Automatic Profile Creation from auth.users
+CREATE OR REPLACE FUNCTION public.handle_new_user()
+RETURNS TRIGGER AS $$
+BEGIN
+  INSERT INTO public.profiles (id, email, role)
+  VALUES (new.id, new.email, 'customer');
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+CREATE OR REPLACE TRIGGER on_auth_user_created
+  AFTER INSERT ON auth.users
+  FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
+
+
+
+
 -- Create Collections Table
 CREATE TABLE IF NOT EXISTS public.collections (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -52,48 +108,6 @@ CREATE POLICY "Allow admin write access to products"
         auth.jwt() ->> 'role' = 'service_role' OR 
         (EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role = 'admin'))
     );
-
-
--- Create Profiles Table (Linked to Supabase Auth)
-CREATE TABLE IF NOT EXISTS public.profiles (
-    id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()),
-    email TEXT,
-    whatsapp_number TEXT,
-    role TEXT DEFAULT 'customer'::text CHECK (role IN ('customer', 'admin')),
-    shipping_address JSONB
-);
-
--- Enable RLS
-ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
-
--- Policies for Profiles
-CREATE POLICY "Users can read own profile" 
-    ON public.profiles FOR SELECT USING (auth.uid() = id);
-
-CREATE POLICY "Users can update own profile" 
-    ON public.profiles FOR UPDATE USING (auth.uid() = id);
-
-CREATE POLICY "Admin can access all profiles" 
-    ON public.profiles FOR ALL USING (
-        auth.jwt() ->> 'role' = 'service_role' OR 
-        (EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role = 'admin'))
-    );
-
-
--- Automatic Profile Creation from auth.users
-CREATE OR REPLACE FUNCTION public.handle_new_user()
-RETURNS TRIGGER AS $$
-BEGIN
-  INSERT INTO public.profiles (id, email, role)
-  VALUES (new.id, new.email, 'customer');
-  RETURN NEW;
-END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
-
-CREATE OR REPLACE TRIGGER on_auth_user_created
-  AFTER INSERT ON auth.users
-  FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
 
 
 -- Create Orders Table
