@@ -154,7 +154,7 @@ export default function AdminLayout({
     return (
       <div className="min-h-screen bg-[#fcfcfc] dark:bg-[#0a0a0a] flex flex-col items-center justify-center text-stone-900 dark:text-white">
         <Loader2 className="animate-spin text-stone-400 mb-4" size={32} />
-        <span className="text-xs uppercase tracking-widest text-stone-500">Securing Flenjure Admin Hub...</span>
+        <span className="text-xs uppercase tracking-widest text-stone-500">Securing QuilCeuticals Admin Hub...</span>
       </div>
     );
   }
@@ -162,7 +162,7 @@ export default function AdminLayout({
   // If on login page, render children directly (no sidebar layout)
   if (pathname === "/admin/login") {
     return (
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem storageKey="flenjure-admin-theme">
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem storageKey="quilceuticals-admin-theme">
         {children}
       </ThemeProvider>
     );
@@ -206,14 +206,14 @@ export default function AdminLayout({
   ];
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem storageKey="flenjure-admin-theme">
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem storageKey="quilceuticals-admin-theme">
       <div className="h-screen bg-[#fcfcfc] dark:bg-[#0a0a0a] text-stone-900 dark:text-stone-100 flex flex-col md:flex-row transition-all duration-300 font-sans font-light tracking-[0.015em] overflow-hidden">
         
         <div className="md:hidden bg-white dark:bg-[#111] border-b border-stone-200 dark:border-stone-800 p-4 flex items-center justify-between z-30 shrink-0">
           <div className="flex items-center gap-2">
             <Image 
               src="/favicon.png" 
-              alt="Flenjure Icon" 
+              alt="QuilCeuticals Icon" 
               width={32} 
               height={32} 
               className="object-contain"
@@ -247,7 +247,7 @@ export default function AdminLayout({
               <Link href="/admin/dashboard" className="flex items-center">
                 <Image 
                   src="/favicon.png" 
-                  alt="Flenjure Icon" 
+                  alt="QuilCeuticals Icon" 
                   width={32} 
                   height={32} 
                   className="object-contain"

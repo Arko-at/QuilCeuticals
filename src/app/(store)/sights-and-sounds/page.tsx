@@ -178,7 +178,7 @@ export default function SightsAndSoundsPage() {
                 loop 
                 playsInline
                 className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-1000"
-                src="/SightsSounds-flenjure.mp4"
+                src="/SightsSounds-quilceuticals.mp4"
               />
               <div 
                 className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${isPlayingVideo2 ? 'opacity-0 group-hover:opacity-100' : 'opacity-100 bg-black/20'}`} 
@@ -236,7 +236,7 @@ export default function SightsAndSoundsPage() {
             <div className="p-8 bg-stone-50 dark:bg-stone-900/50 border border-stone-100 dark:border-stone-800 rounded-sm">
                <Volume2 size={24} strokeWidth={1} className="text-stone-400 mb-6" />
                <p className="text-sm font-light text-stone-600 dark:text-stone-400 leading-relaxed italic">
-                 "Our sensory extensions are designed to bridge the gap between the physical and digital, creating an atmosphere that resonates with the Flenjure lifestyle."
+                 "Our sensory extensions are designed to bridge the gap between the physical and digital, creating an atmosphere that resonates with the QuilCeuticals lifestyle."
                </p>
             </div>
           </div>

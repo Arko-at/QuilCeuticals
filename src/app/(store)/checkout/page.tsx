@@ -2,8 +2,8 @@ import { Suspense } from "react";
 import CheckoutClient from "@/components/checkout/CheckoutClient";
 
 export const metadata = {
-  title: "Checkout | Flenjure",
-  description: "Secure checkout portal for Flenjure apparel and accessories.",
+  title: "Checkout | QuilCeuticals",
+  description: "Secure checkout portal for QuilCeuticals apparel and accessories.",
 };
 
 export default function CheckoutPage() {

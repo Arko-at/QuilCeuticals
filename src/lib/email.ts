@@ -8,7 +8,7 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true, // true for 465, false for other ports
   auth: {
-    user: process.env.ZOHO_EMAIL || "orders@flenjure.com",
+    user: process.env.ZOHO_EMAIL || "orders@quilceuticals.com",
     pass: process.env.ZOHO_APP_PASSWORD,
   },
 });
@@ -34,9 +34,9 @@ export async function sendEmail({
     const html = await render(react);
     
     // Zoho demands that the "From" address exactly matches the authenticated user.
-    // We can change the display name, but the email must be orders@flenjure.com.
-    const fromName = isInternalAdminAlert ? "Flenjure System" : "Flenjure";
-    const fromAddress = process.env.ZOHO_EMAIL || "orders@flenjure.com";
+    // We can change the display name, but the email must be orders@quilceuticals.com.
+    const fromName = isInternalAdminAlert ? "QuilCeuticals System" : "QuilCeuticals";
+    const fromAddress = process.env.ZOHO_EMAIL || "orders@quilceuticals.com";
 
     const info = await transporter.sendMail({
       from: `"${fromName}" <${fromAddress}>`,

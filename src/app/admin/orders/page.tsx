@@ -66,7 +66,7 @@ export default function AdminOrdersPage() {
       payment_method: "manual_payment",
       payment_status: "pending",
       shipping_address: {
-        fullName: "Flenjure Papi",
+        fullName: "QuilCeuticals Papi",
         addressLine1: "123 Peachtree St NE",
         city: "Atlanta",
         state: "GA",
@@ -78,9 +78,9 @@ export default function AdminOrdersPage() {
         { product_id: "prod-2", title: "Fleñjure Bag Packs", quantity: 2, price: 5.00 }
       ],
       whatsapp_number: "+14041234567",
-      email: "client@flenjure.com",
+      email: "client@quilceuticals.com",
       payment_details: {
-        cashappTag: "$Flenjure"
+        cashappTag: "$QuilCeuticals"
       }
     },
     {
@@ -178,7 +178,7 @@ export default function AdminOrdersPage() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("download", `flenjure-orders-${new Date().toISOString().split('T')[0]}.csv`);
+    link.setAttribute("download", `quilceuticals-orders-${new Date().toISOString().split('T')[0]}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

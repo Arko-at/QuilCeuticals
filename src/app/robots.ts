@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/admin', '/api/', '/account', '/checkout'],
     },
-    sitemap: 'https://flenjure.com/sitemap.xml',
+    sitemap: 'https://quilceuticals.com/sitemap.xml',
   };
 }

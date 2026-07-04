@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CheckCircle } from "lucide-react";
 
 export const metadata = {
-  title: "Order Successful | Flenjure",
+  title: "Order Successful | QuilCeuticals",
   description: "Thank you for your order.",
 };
 
@@ -21,7 +21,7 @@ export default async function CheckoutSuccessPage(props: {
         
         <h1 className="text-2xl font-semibold text-stone-900 tracking-tight mb-2">Order Confirmed</h1>
         <p className="text-stone-500 mb-8">
-          Thank you for shopping with Flenjure. Your order <strong className="text-stone-900">{orderId}</strong> has been received and is being processed.
+          Thank you for shopping with QuilCeuticals. Your order <strong className="text-stone-900">{orderId}</strong> has been received and is being processed.
         </p>
 
         <div className="w-full space-y-4">

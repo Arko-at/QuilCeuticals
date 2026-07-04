@@ -25,19 +25,19 @@ export default function LookbookPage() {
         {/* Vertical Editorial Flow */}
         <div className="flex flex-col gap-48 w-full max-w-5xl">
           <LookbookSection 
-            image="/images/flenjure_lookbook_1_1777310682790.png" 
+            image="/images/quilceuticals_lookbook_1_1777310682790.png" 
             title="Look 001" 
             details="Jersey Fleece Hoodie in Bone with matching Cotton Twill Trousers."
             reverse={false}
           />
           <LookbookSection 
-            image="/images/flenjure_lookbook_3_1777310726550.png" 
+            image="/images/quilceuticals_lookbook_3_1777310726550.png" 
             title="Look 002" 
             details="Signature Heavyweight Tote and Overdyed Canvas Jacket."
             reverse={true}
           />
           <LookbookSection 
-            image="/images/flenjure_lookbook_2_1777310705555.png" 
+            image="/images/quilceuticals_lookbook_2_1777310705555.png" 
             title="Look 003" 
             details="Cafe Essentials: Logo Porcelain Cup and Sourced Leather Accessories."
             reverse={false}

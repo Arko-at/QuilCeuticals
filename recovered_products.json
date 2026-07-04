@@ -1,0 +1,313 @@
+[
+  {
+    "id": "flenjure-skullies-1",
+    "name": "Fleñjure Essentials Skully",
+    "slug": "flenjure-skullies-1",
+    "price": "$$24.00",
+    "compareAtPrice": null,
+    "image": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/p6w1qf43o0a_1780328661178.jpg",
+    "hoverImage": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/i97690ugsom_1780328662274.jpg",
+    "category": "Apparel",
+    "collectionId": null,
+    "inStock": true,
+    "variants": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
+  },
+  {
+    "id": "flenjure-essentials-balaclava",
+    "name": "Fleñjure Essentials Balaclava",
+    "slug": "flenjure-essentials-balaclava",
+    "price": "$$24.00",
+    "compareAtPrice": null,
+    "image": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/q368wakofjs_1780310844936.jpg",
+    "hoverImage": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/7e9e2wc4vx2_1780310847416.jpg",
+    "category": "Apparel",
+    "collectionId": null,
+    "inStock": true,
+    "variants": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
+  },
+  {
+    "id": "flenjure-ball-shorts",
+    "name": "Fleñjure Anthem Warm Up Shorts",
+    "slug": "flenjure-ball-shorts",
+    "price": "$$40.00",
+    "compareAtPrice": null,
+    "image": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/r7syd8y1sjn_1781412174114.jpeg",
+    "hoverImage": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/d986lsh3kaa_1781412175458.jpeg",
+    "category": "Apparel",
+    "collectionId": null,
+    "inStock": true,
+    "variants": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
+  },
+  {
+    "id": "flenjure-anthem-tee",
+    "name": "Fleñjure Anthem Tee",
+    "slug": "flenjure-anthem-tee",
+    "price": "$$60.00",
+    "compareAtPrice": null,
+    "image": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/1lwl9dnl6w1h_1780325614843.jpg",
+    "hoverImage": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/17iq485ar0s_1780325630939.jpg",
+    "category": "Apparel",
+    "collectionId": "46f57add-5373-4e64-b4b5-0397fe030970",
+    "inStock": true,
+    "variants": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
+  },
+  {
+    "id": "fle-jure-essentials-sox",
+    "name": "Fleñjure Essentials Sox",
+    "slug": "fle-jure-essentials-sox",
+    "price": "$$8.00",
+    "compareAtPrice": null,
+    "image": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/muyj34hki5_1780221939403.jpeg",
+    "hoverImage": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/92y421ba02v_1780325875192.jpg",
+    "category": "Apparel",
+    "collectionId": null,
+    "inStock": true,
+    "variants": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
+  },
+  {
+    "id": "fle-jure-essential-sox",
+    "name": "Fleñjure Essentials Sox",
+    "slug": "fle-jure-essential-sox",
+    "price": "$$8.00",
+    "compareAtPrice": null,
+    "image": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/wtlz4dnwbl_1780326060303.jpg",
+    "hoverImage": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/7kox2z4ahyh_1780326101297.jpg",
+    "category": "Apparel",
+    "collectionId": null,
+    "inStock": true,
+    "variants": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
+  },
+  {
+    "id": "fle-jure-essentials-tank-3",
+    "name": "Fleñjure Essentials Tank",
+    "slug": "fle-jure-essentials-tank-3",
+    "price": "$$24.00",
+    "compareAtPrice": null,
+    "image": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/dzytkxfgbw_1780327098710.jpg",
+    "hoverImage": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/9c5lms5i0b_1780327109997.jpg",
+    "category": "Apparel",
+    "collectionId": null,
+    "inStock": true,
+    "variants": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
+  },
+  {
+    "id": "fle-jure-munyon-holder-1",
+    "name": "Fleñjure Munyon Holder",
+    "slug": "fle-jure-munyon-holder-1",
+    "price": "$$81.00",
+    "compareAtPrice": null,
+    "image": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/j5zgmqlbuyh_1780328965231.jpg",
+    "hoverImage": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/98ky3s60beo_1780329113301.jpeg",
+    "category": "Apparel",
+    "collectionId": null,
+    "inStock": true,
+    "variants": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
+  },
+  {
+    "id": "fle-jure-championship-jacket",
+    "name": "Fleñjure Championship Jacket",
+    "slug": "fle-jure-championship-jacket",
+    "price": "$$810.00",
+    "compareAtPrice": null,
+    "image": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/0dtiwc0qu2c5_1780329479343.jpg",
+    "hoverImage": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/avdwharr91s_1780329513594.jpg",
+    "category": "Apparel",
+    "collectionId": null,
+    "inStock": true,
+    "variants": [
+      {
+        "sku": "",
+        "size": "XS",
+        "color": "",
+        "inventory_count": 10
+      },
+      {
+        "sku": "",
+        "size": "S",
+        "color": "",
+        "inventory_count": 10
+      },
+      {
+        "sku": "",
+        "size": "M",
+        "color": "",
+        "inventory_count": 10
+      },
+      {
+        "sku": "",
+        "size": "L",
+        "color": "",
+        "inventory_count": 10
+      },
+      {
+        "sku": "",
+        "size": "XL",
+        "color": "",
+        "inventory_count": 10
+      }
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
+  },
+  {
+    "id": "fle-jure-essentials-tank-4",
+    "name": "Fleñjure Essentials Tank",
+    "slug": "fle-jure-essentials-tank-4",
+    "price": "$$24.00",
+    "compareAtPrice": null,
+    "image": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/p5c4vkzgvu_1780328476503.jpg",
+    "hoverImage": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/1uznvls71rj_1780328478259.jpg",
+    "category": "Apparel",
+    "collectionId": null,
+    "inStock": true,
+    "variants": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
+  },
+  {
+    "id": "fle-jure-essentials-tank-2",
+    "name": "Fleñjure Essentials Tank",
+    "slug": "fle-jure-essentials-tank-2",
+    "price": "$$24.00",
+    "compareAtPrice": null,
+    "image": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/ujv2gcwkxu7_1780327006377.jpg",
+    "hoverImage": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/lvkod7rj0jf_1780327026721.jpg",
+    "category": "Apparel",
+    "collectionId": null,
+    "inStock": true,
+    "variants": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
+  },
+  {
+    "id": "fle-jure-anthem-camo-skully",
+    "name": "Fleñjure Anthem Camo Skully",
+    "slug": "fle-jure-anthem-camo-skully",
+    "price": "$$24.00",
+    "compareAtPrice": null,
+    "image": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/5lbheqr6g3v_1780331136896.jpg",
+    "hoverImage": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/d1m005bbk2_1780331138290.jpg",
+    "category": "Apparel",
+    "collectionId": null,
+    "inStock": true,
+    "variants": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
+  },
+  {
+    "id": "fle-jure-essentials-tank",
+    "name": "Fleñjure Essentials Tank",
+    "slug": "fle-jure-essentials-tank",
+    "price": "$$24.00",
+    "compareAtPrice": null,
+    "image": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/ve8f4yxumj_1780331065318.jpg",
+    "hoverImage": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/chvbtci645l_1780331077391.jpg",
+    "category": "Apparel",
+    "collectionId": null,
+    "inStock": true,
+    "variants": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
+  },
+  {
+    "id": "fle-jure-essentials-baseball-cap",
+    "name": "Fleñjure Essentials Baseball Cap",
+    "slug": "fle-jure-essentials-baseball-cap",
+    "price": "$$24.00",
+    "compareAtPrice": null,
+    "image": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/lnx169ijhc_1781433502524.jpeg",
+    "hoverImage": "https://mklfrfhzjiztwtbmjjoe.supabase.co/storage/v1/object/public/products/tkmvxamva9f_1781433503708.jpeg",
+    "category": "Apparel",
+    "collectionId": null,
+    "inStock": true,
+    "variants": [],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
+  }
+]

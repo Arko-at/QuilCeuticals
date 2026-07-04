@@ -13,7 +13,7 @@ export default function CafeClient() {
   const [items, setItems] = useState<any[]>([]);
 
   useEffect(() => {
-    const isVerified = sessionStorage.getItem("flenjure_age_verified");
+    const isVerified = sessionStorage.getItem("quilceuticals_age_verified");
     if (!isVerified) {
       setShowAgeModal(true);
       document.body.style.overflow = "hidden";
@@ -28,7 +28,7 @@ export default function CafeClient() {
 
   const handleVerify = (verified: boolean) => {
     if (verified) {
-      sessionStorage.setItem("flenjure_age_verified", "true");
+      sessionStorage.setItem("quilceuticals_age_verified", "true");
       setShowAgeModal(false);
       document.body.style.overflow = "auto";
     } else {

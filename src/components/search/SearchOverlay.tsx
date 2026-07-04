@@ -145,7 +145,7 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
               <div className="hidden md:block">
                 <div className="relative aspect-[4/5] w-full bg-stone-100 overflow-hidden group">
                   <Image
-                    src="/Flenjure-herobg.png"
+                    src="/QuilCeuticals-herobg.png"
                     alt="Featured Search"
                     fill
                     className="object-cover transition-transform duration-3000 ease-out group-hover:scale-110"

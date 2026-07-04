@@ -96,8 +96,8 @@ export async function POST(req: Request) {
       });
 
       await sendEmail({
-        to: 'orders@flenjure.com',
-        subject: `[NEW CAFE ORDER] Flenjure #${orderId}`,
+        to: 'orders@quilceuticals.com',
+        subject: `[NEW CAFE ORDER] QuilCeuticals #${orderId}`,
         isInternalAdminAlert: true,
         react: OrderReceipt({
           orderId: orderId,

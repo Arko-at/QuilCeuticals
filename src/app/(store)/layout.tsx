@@ -11,7 +11,7 @@ export default function StoreLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem storageKey="flenjure-theme">
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem storageKey="quilceuticals-theme">
       <LoadingScreen />
       <SmoothScroller>
         <Navbar />

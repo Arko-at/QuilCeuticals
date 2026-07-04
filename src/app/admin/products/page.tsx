@@ -95,8 +95,8 @@ function AdminProductsPageContent() {
     {
       id: "prod-1",
       title: "Fleñjure OG Jersey",
-      slug: "flenjure-og-jersey",
-      description: "Signature Flenjure jersey, standard fit.",
+      slug: "quilceuticals-og-jersey",
+      description: "Signature QuilCeuticals jersey, standard fit.",
       price: 60.00,
       compare_at_price: 80.00,
       category: "Apparel",
@@ -108,8 +108,8 @@ function AdminProductsPageContent() {
     {
       id: "prod-2",
       title: "Fleñjure Bag Packs",
-      slug: "flenjure-bag-packs",
-      description: "Flenjure branded bag packs in multiple sizes.",
+      slug: "quilceuticals-bag-packs",
+      description: "QuilCeuticals branded bag packs in multiple sizes.",
       price: 5.00,
       category: "Accessories",
       in_stock: true,
@@ -395,7 +395,7 @@ function AdminProductsPageContent() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("download", `flenjure-products-${new Date().toISOString().split('T')[0]}.csv`);
+    link.setAttribute("download", `quilceuticals-products-${new Date().toISOString().split('T')[0]}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -750,10 +750,10 @@ function AdminProductsPageContent() {
                     required={!!editingProduct}
                     value={slug}
                     onChange={(e) => setSlug(e.target.value.toLowerCase().replace(/[^a-z0-9-]+/g, "-"))}
-                    placeholder="e.g., flenjure-anthem-tee"
+                    placeholder="e.g., quilceuticals-anthem-tee"
                     className="w-full bg-transparent border border-stone-200 dark:border-stone-700 rounded-md px-3 py-2 text-sm outline-none focus:border-stone-900 dark:focus:border-stone-500 text-stone-900 dark:text-white transition-colors"
                   />
-                  <p className="text-xs text-stone-500">The URL for your product: https://flenjure.com/shop/<strong>{slug || "auto-generated"}</strong></p>
+                  <p className="text-xs text-stone-500">The URL for your product: https://quilceuticals.com/shop/<strong>{slug || "auto-generated"}</strong></p>
                 </div>
 
                 <div className="px-4 py-3 flex justify-between items-center bg-white dark:bg-[#111]">

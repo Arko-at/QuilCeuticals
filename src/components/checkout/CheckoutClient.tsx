@@ -20,9 +20,10 @@ import {
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "pk_test_placeholder"
-);
+const stripeKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+const stripePromise = stripeKey && stripeKey.startsWith("pk_") 
+  ? loadStripe(stripeKey)
+  : null;
 
 function CheckoutForm({ clientSecret, isCafeMode }: { clientSecret: string, isCafeMode?: boolean }) {
   const stripe = useStripe();
@@ -299,14 +300,18 @@ function CheckoutForm({ clientSecret, isCafeMode }: { clientSecret: string, isCa
               </div>
 
               {/* Express Checkout (Apple Pay / Google Pay) */}
-              <div className="mb-4">
-                <ExpressCheckoutElement onConfirm={() => setIsProcessing(true)} />
-              </div>
-              <div className="flex items-center gap-4 mb-4">
-                <div className="h-[1px] flex-1 bg-[#e6e6e6] dark:bg-stone-800"></div>
-                <span className="text-[12px] text-[#737373]">OR</span>
-                <div className="h-[1px] flex-1 bg-[#e6e6e6] dark:bg-stone-800"></div>
-              </div>
+              {stripePromise && (
+                <>
+                  <div className="mb-4">
+                    <ExpressCheckoutElement onConfirm={() => setIsProcessing(true)} />
+                  </div>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="h-[1px] flex-1 bg-[#e6e6e6] dark:bg-stone-800"></div>
+                    <span className="text-[12px] text-[#737373]">OR</span>
+                    <div className="h-[1px] flex-1 bg-[#e6e6e6] dark:bg-stone-800"></div>
+                  </div>
+                </>
+              )}
 
               <input
                 type="email"
@@ -626,13 +631,13 @@ function CheckoutForm({ clientSecret, isCafeMode }: { clientSecret: string, isCa
                          <strong className="text-stone-900 dark:text-white uppercase tracking-wider text-xs block mb-3 border-b pb-1 border-stone-200 dark:border-stone-800">Revolut Transfer</strong>
                          <p>Send <strong className="text-stone-900 dark:text-white">{formatPrice(cartTotal)}</strong> directly via our payment link:</p>
                          <p className="text-base font-semibold text-stone-900 dark:text-white mt-2 font-mono">
-                           <a href="https://revolut.me/flenjure" target="_blank" rel="noopener noreferrer" className="underline hover:text-stone-500">https://revolut.me/flenjure</a>
+                           <a href="https://revolut.me/quilceuticals" target="_blank" rel="noopener noreferrer" className="underline hover:text-stone-500">https://revolut.me/quilceuticals</a>
                          </p>
                          <p className="mt-4 pt-3 border-t border-stone-200 dark:border-stone-800 text-[11px] text-stone-500">Alternatively, scan the QR code to pay instantly via Revolut app.</p>
                        </div>
                        <div className="flex-shrink-0 bg-white p-2 border border-stone-200 rounded-[4px]">
                          <img
-                           src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://revolut.me/flenjure"
+                           src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://revolut.me/quilceuticals"
                            alt="Revolut Pay QR"
                            className="w-[100px] h-[100px] object-contain"
                          />
@@ -646,8 +651,8 @@ function CheckoutForm({ clientSecret, isCafeMode }: { clientSecret: string, isCa
                        <strong className="text-stone-900 dark:text-white uppercase tracking-wider text-xs block mb-3 border-b pb-1 border-stone-200 dark:border-stone-800">Zelle Payment</strong>
                        <div className="space-y-1 text-stone-700 dark:text-stone-300 text-xs">
                          <p>Please send payment via Zelle to our official billing email:</p>
-                         <p className="text-sm font-semibold text-stone-900 dark:text-white mt-2 font-mono">sales@flenjure.com</p>
-                         <p className="mt-4 pt-3 border-t border-stone-200 dark:border-stone-800 text-[11px] text-stone-500">Please verify you are sending to Flenjure Ltd before finalizing.</p>
+                         <p className="text-sm font-semibold text-stone-900 dark:text-white mt-2 font-mono">sales@quilceuticals.com</p>
+                         <p className="mt-4 pt-3 border-t border-stone-200 dark:border-stone-800 text-[11px] text-stone-500">Please verify you are sending to QuilCeuticals Ltd before finalizing.</p>
                        </div>
                      </div>
                    )}
@@ -658,12 +663,12 @@ function CheckoutForm({ clientSecret, isCafeMode }: { clientSecret: string, isCa
                        <div className="space-y-1 text-stone-700 dark:text-stone-300 text-xs flex-1">
                          <strong className="text-stone-900 dark:text-white uppercase tracking-wider text-xs block mb-3 border-b pb-1 border-stone-200 dark:border-stone-800">Cash App Payment</strong>
                          <p>Send <strong className="text-stone-900 dark:text-white">{formatPrice(cartTotal)}</strong> directly to our Cashtag:</p>
-                         <p className="text-base font-semibold text-stone-900 dark:text-white mt-2 font-mono">$Flenjure</p>
+                         <p className="text-base font-semibold text-stone-900 dark:text-white mt-2 font-mono">$QuilCeuticals</p>
                          <p className="mt-4 pt-3 border-t border-stone-200 dark:border-stone-800 text-[11px] text-stone-500">Scan QR to pay instantly.</p>
                        </div>
                        <div className="flex-shrink-0 bg-white p-2 border border-stone-200 rounded-[4px]">
                          <img
-                           src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://cash.app/$Flenjure"
+                           src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://cash.app/$QuilCeuticals"
                            alt="Cash App QR"
                            className="w-[100px] h-[100px] object-contain"
                          />
@@ -715,7 +720,7 @@ function CheckoutForm({ clientSecret, isCafeMode }: { clientSecret: string, isCa
                        <div className="space-y-1 text-stone-700 dark:text-stone-300 text-xs">
                          <p>Pay with cash upon local pickup/delivery.</p>
                          <p className="mt-3">Please contact our support via WhatsApp or email to coordinate handover logistics:</p>
-                         <p className="text-sm font-semibold text-stone-900 dark:text-white mt-2 font-mono">sales@flenjure.com</p>
+                         <p className="text-sm font-semibold text-stone-900 dark:text-white mt-2 font-mono">sales@quilceuticals.com</p>
                          <p className="mt-4 pt-3 border-t border-stone-200 dark:border-stone-800 text-[11px] text-stone-500">Your order will remain pending verification until physical cash handover is completed.</p>
                        </div>
                      </div>
@@ -732,7 +737,11 @@ function CheckoutForm({ clientSecret, isCafeMode }: { clientSecret: string, isCa
                 </div>
               ) : (
                 <div className="p-4 border border-[#d9d9d9] dark:border-stone-800 rounded-[4px] bg-white dark:bg-[#111] shadow-sm">
-                  <PaymentElement />
+                  {stripePromise ? (
+                    <PaymentElement />
+                  ) : (
+                    <div className="text-sm text-stone-500 py-4 text-center">Credit Card payments are currently unavailable.</div>
+                  )}
                 </div>
               )}
             </div>

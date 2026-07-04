@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { getProducts, getCollections } from "@/app/admin/actions";
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   title: 'Shop Premium Essentials',
   description: 'Shop Fleñjure\'s premium lifestyle and apparel collections. Discover Capsule 1 and elevate your living with exclusive, high-end pieces designed in Atlanta.',
@@ -42,6 +45,7 @@ export default async function ShopPage() {
   const products = dbProducts
     .filter((p: any) => p.in_stock)
     .map((p: any) => {
+      console.log("Mapping product:", p.title, p.in_stock);
       const sizingData = getSizing(p);
       return {
         id: p.slug, // Use slug as the ID for routing purposes since ShopClient links to /shop/${product.id}

@@ -57,9 +57,9 @@ export default function AdminCollectionsPage() {
   const mockCollections: Collection[] = [
     {
       id: "col-1",
-      name: "Flenjure Core Apparel",
-      slug: "flenjure-core-apparel",
-      description: "Signature Flenjure pieces engineered for daily comfort and timeless style.",
+      name: "QuilCeuticals Core Apparel",
+      slug: "quilceuticals-core-apparel",
+      description: "Signature QuilCeuticals pieces engineered for daily comfort and timeless style.",
       image_url: "https://cdn.sanity.io/images/nkccolc2/production/b9eebe9634ca12b2998fe561c0d1afffbcdf0cdc-1500x1500.jpg",
       order: 1
     },
@@ -67,7 +67,7 @@ export default function AdminCollectionsPage() {
       id: "col-2",
       name: "Accessories & Bags",
       slug: "accessories-bags",
-      description: "Premium bags and curated objects from the Flenjure universe.",
+      description: "Premium bags and curated objects from the QuilCeuticals universe.",
       image_url: "https://cdn.sanity.io/images/nkccolc2/production/7b8b4a07f0fb1e5b4b72605f1559edec954d6d67-2000x2000.png",
       order: 2
     },

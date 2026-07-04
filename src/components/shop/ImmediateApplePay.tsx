@@ -5,9 +5,10 @@ import { useRouter } from "next/navigation";
 import { Elements, ExpressCheckoutElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "pk_test_placeholder"
-);
+const stripeKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+const stripePromise = stripeKey && stripeKey.startsWith("pk_") 
+  ? loadStripe(stripeKey)
+  : null;
 
 function ApplePayButton({ productId, selectedSize }: { productId: string, selectedSize: string | null }) {
   const stripe = useStripe();
@@ -108,6 +109,7 @@ export default function ImmediateApplePay({
   }
 
   if (amountInCents < 50) return null; // Stripe minimum
+  if (!stripePromise) return null;
 
   return (
     <div className="flex-1 h-[43px]">

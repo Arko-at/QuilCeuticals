@@ -139,8 +139,8 @@ export async function POST(req: Request) {
 
       // 3b. Send separate copy to Admin
       await sendEmail({
-        to: 'orders@flenjure.com',
-        subject: `[NEW ORDER] Flenjure #${orderId}`,
+        to: 'orders@quilceuticals.com',
+        subject: `[NEW ORDER] QuilCeuticals #${orderId}`,
         isInternalAdminAlert: true,
         react: OrderReceipt({
           orderId: orderId,

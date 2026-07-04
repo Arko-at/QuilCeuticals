@@ -39,7 +39,7 @@ export const OrderReceipt = ({
 }: OrderReceiptProps) => (
   <Html>
     <Head />
-    <Preview>Your Flenjure Order Receipt #{orderId}</Preview>
+    <Preview>Your QuilCeuticals Order Receipt #{orderId}</Preview>
     <Body style={main}>
       <Container style={container}>
         <Section style={header}>
@@ -48,7 +48,7 @@ export const OrderReceipt = ({
         <Section style={content}>
           <Text style={greeting}>Hi {customerName},</Text>
           <Text style={paragraph}>
-            Thank you for shopping with Flenjure! We're getting your order ready to be shipped. We will notify you when it has been sent.
+            Thank you for shopping with QuilCeuticals! We're getting your order ready to be shipped. We will notify you when it has been sent.
           </Text>
 
           <Hr style={hr} />
@@ -108,10 +108,10 @@ export const OrderReceipt = ({
           <Hr style={hr} />
           
           <Text style={footerText}>
-            If you have any questions, reply to this email or contact us at support@flenjure.com.
+            If you have any questions, reply to this email or contact us at support@quilceuticals.com.
           </Text>
           <Text style={footerText}>
-            Flenjure — Enjoy life! On ne vit qu'une fois.
+            QuilCeuticals — Enjoy life! On ne vit qu'une fois.
           </Text>
         </Section>
       </Container>

@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://flenjure.com';
+  const baseUrl = 'https://quilceuticals.com';
 
   return [
     {

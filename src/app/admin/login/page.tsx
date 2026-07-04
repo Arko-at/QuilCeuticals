@@ -45,7 +45,7 @@ export default function AdminLoginPage() {
       }
 
       // We expect the user to be an admin (managed via RLS or logic)
-      // Since Flenjure handles admin roles, let's let them straight into the dashboard
+      // Since QuilCeuticals handles admin roles, let's let them straight into the dashboard
       router.push("/admin/dashboard");
     } catch (err) {
       console.error(err);
@@ -82,7 +82,7 @@ export default function AdminLoginPage() {
         <div className="mx-auto mb-6 flex justify-center">
           <Image 
             src="/logo.png" 
-            alt="Flenjure" 
+            alt="QuilCeuticals" 
             width={160} 
             height={50} 
             className="object-contain"
@@ -90,7 +90,7 @@ export default function AdminLoginPage() {
           />
         </div>
         <h2 className="text-2xl font-bold tracking-tight text-stone-900 dark:text-white">
-          {isResetMode ? "Reset your password" : "Log in to Flenjure"}
+          {isResetMode ? "Reset your password" : "Log in to QuilCeuticals"}
         </h2>
         <p className="mt-2 text-sm text-stone-500">
           {isResetMode ? "Enter your email to receive a recovery link" : "Secure administration hub"}
