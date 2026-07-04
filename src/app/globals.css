@@ -1,0 +1,79 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Primary */
+  --color-obsidian: #0A0A0A;
+  --color-charcoal: #1A1A1A;
+  --color-soft-white: #FCFCFC;
+  --color-warm-ivory: #FDFBF7;
+
+  /* Secondary */
+  --color-champagne-gold: #D4AF37;
+  --color-platinum: #E5E4E2;
+  --color-pearl: #EAE6DF;
+  --color-rose-gold: #B76E79;
+
+  /* Fonts */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: var(--font-playfair), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+/* Custom Utilities for smooth behaviors and 3D */
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility text-pretty {
+  text-wrap: pretty;
+}
+
+@utility perspective-1000 {
+  perspective: 1000px;
+}
+
+@utility transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+@utility bg-luxury-gradient {
+  background: linear-gradient(135deg, var(--color-obsidian) 0%, var(--color-charcoal) 50%, var(--color-champagne-gold) 100%);
+}
+
+@utility bg-luxury-glow {
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.15) 0%, rgba(10, 10, 10, 1) 70%);
+}
+
+@utility text-luxury-gradient {
+  background: linear-gradient(to right, #D4AF37, #FFDF73, #B76E79);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+@layer base {
+  * {
+    @apply border-stone-200;
+  }
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
