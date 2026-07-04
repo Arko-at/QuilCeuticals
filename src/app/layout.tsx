@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description: "An ultra-premium, top-1% luxury educational skincare platform. Science-backed, flawless engineering.",
     url: "https://quilceuticals.vercel.app",
     siteName: "QuilCeuticals",
-    images: [{ url: "https://quilceuticals.vercel.app/logo.png", width: 1200, height: 630 }],
+    images: [{ url: "https://quilceuticals.vercel.app/Logo-for-screen-share.jpg", width: 1200, height: 630 }],
     locale: "en_US",
     type: "website",
   },
@@ -34,6 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "QuilCeuticals",
     description: "An ultra-premium, top-1% luxury educational skincare platform. Science-backed, flawless engineering.",
+    images: ["https://quilceuticals.vercel.app/Logo-for-screen-share.jpg"],
   },
   icons: {
     icon: "/favicon.png",
