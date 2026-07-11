@@ -1,125 +1,79 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function ProductStory() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  
-  const text1Ref = useRef<HTMLDivElement>(null);
-  const text2Ref = useRef<HTMLDivElement>(null);
-  const text3Ref = useRef<HTMLDivElement>(null);
-  
-  const img1Ref = useRef<HTMLDivElement>(null);
-  const img2Ref = useRef<HTMLDivElement>(null);
-  const img3Ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    
-    let ctx = gsap.context(() => {
-      
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "+=300%",
-          scrub: 1,
-          pin: true,
-        }
-      });
-
-      // Initially show first image, hide others
-      gsap.set(img2Ref.current, { opacity: 0, scale: 1.1 });
-      gsap.set(img3Ref.current, { opacity: 0, scale: 1.1 });
-      
-      gsap.set(text2Ref.current, { opacity: 0, y: 50 });
-      gsap.set(text3Ref.current, { opacity: 0, y: 50 });
-
-      // Transition to Section 2 (Pearl)
-      tl.to(text1Ref.current, { opacity: 0, y: -50, duration: 1 }, 0)
-        .to(img1Ref.current, { opacity: 0, scale: 0.9, duration: 1 }, 0)
-        .to(img2Ref.current, { opacity: 1, scale: 1, duration: 1 }, 0.5)
-        .to(text2Ref.current, { opacity: 1, y: 0, duration: 1 }, 0.5);
-
-      // Transition to Section 3 (Ectoin)
-      tl.to(text2Ref.current, { opacity: 0, y: -50, duration: 1 }, 2)
-        .to(img2Ref.current, { opacity: 0, scale: 0.9, duration: 1 }, 2)
-        .to(img3Ref.current, { opacity: 1, scale: 1, duration: 1 }, 2.5)
-        .to(text3Ref.current, { opacity: 1, y: 0, duration: 1 }, 2.5);
-
-    }, containerRef);
-    
-    return () => ctx.revert();
-  }, []);
+  // Subtle internal parallax for the image
+  const yImage = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+  // Subtle parallax for the text
+  const yText = useTransform(scrollYProgress, [0, 1], ["10%", "-5%"]);
 
   return (
-    <section ref={containerRef} className="relative w-full h-screen bg-[#FDFBF7] dark:bg-[#0A0A0A] overflow-hidden flex items-center transition-colors duration-1000">
-      
-      {/* Left Side: Macro Images (Pinned Center) */}
-      <div className="absolute left-0 top-0 w-full md:w-1/2 h-full flex items-center justify-center bg-[#EAE6DF] dark:bg-[#111111]">
+    <section ref={containerRef} className="w-full bg-[#F8F7F5] dark:bg-[#1C1C1C] transition-colors duration-700 pt-12 pb-32 px-6 lg:px-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24 relative z-10">
         
-        {/* Img 1: Niacinamide */}
-        <div ref={img1Ref} className="absolute inset-0 w-full h-full">
-          <Image src="/images/niacinamide_texture.png" alt="Niacinamide Texture" fill className="object-cover mix-blend-multiply dark:mix-blend-screen opacity-80" />
-        </div>
-        
-        {/* Img 2: Pearl */}
-        <div ref={img2Ref} className="absolute inset-0 w-full h-full">
-          <Image src="/images/pearl_extract.png" alt="Pearl Extract" fill className="object-cover mix-blend-multiply dark:mix-blend-screen opacity-80" />
-        </div>
-        
-        {/* Img 3: Ectoin */}
-        <div ref={img3Ref} className="absolute inset-0 w-full h-full">
-          <Image src="/images/ectoin_crystals.png" alt="Ectoin Crystals" fill className="object-cover mix-blend-multiply dark:mix-blend-screen opacity-80" />
+        {/* Left: Image with Parallax */}
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full lg:w-1/2 relative aspect-[4/5] bg-[#F2F0EB] dark:bg-[#2A2A2A] rounded-sm overflow-hidden"
+        >
+          <motion.div style={{ y: yImage }} className="absolute inset-0 -top-[15%] -bottom-[15%] overflow-hidden flex items-center justify-center bg-[#F2F0EB] dark:bg-[#2A2A2A]">
+            <iframe
+              src="https://www.youtube.com/embed/oc-xwDRNOHI?autoplay=1&mute=1&loop=1&playlist=oc-xwDRNOHI&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&fs=0"
+              allow="autoplay; encrypted-media"
+              className="w-[250%] h-[200%] pointer-events-none"
+            />
+            <motion.div 
+              initial={{ opacity: 1 }} 
+              animate={{ opacity: 0 }} 
+              transition={{ delay: 2, duration: 1 }} 
+              className="absolute inset-0 bg-[#F2F0EB] dark:bg-[#2A2A2A] pointer-events-none z-10" 
+            />
+          </motion.div>
+        </motion.div>
+
+        {/* Right: Copy */}
+        <div className="w-full lg:w-1/2 flex flex-col justify-center">
+          <motion.div
+            style={{ y: yText }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span className="font-sans text-[10px] uppercase tracking-[0.4em] font-medium text-stone-500 mb-6 block">
+              The Philosophy
+            </span>
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-[#1C1C1C] dark:text-[#F8F7F5] leading-[1.1] mb-8">
+              A commitment to <br className="hidden md:block" />
+              <span className="italic text-stone-500">absolute purity.</span>
+            </h2>
+            <p className="font-sans font-light text-base md:text-lg text-stone-600 dark:text-stone-400 leading-relaxed mb-8">
+              We do not compromise. Every ingredient is sourced at the peak of its potency, processed using medical-grade extraction techniques, and formulated to seamlessly integrate with your skin's natural architecture.
+            </p>
+            <p className="font-sans font-light text-base md:text-lg text-stone-600 dark:text-stone-400 leading-relaxed mb-12">
+              The result is an unparalleled experience that bridges the gap between clinical efficacy and pure luxury.
+            </p>
+            
+            <Link href="/journey" className="group flex items-center justify-center bg-[#1C1C1C] dark:bg-[#F8F7F5] text-white dark:text-[#1C1C1C] px-8 py-4 rounded-full hover:opacity-90 transition-opacity w-max">
+              <span className="font-sans text-xs tracking-widest uppercase font-medium">Read Our Story</span>
+            </Link>
+          </motion.div>
         </div>
         
       </div>
-
-      {/* Right Side: Scrollytelling Text */}
-      <div className="absolute right-0 top-0 w-full md:w-1/2 h-full flex items-center px-8 md:px-24 pointer-events-none">
-        
-        <div className="relative w-full h-[50vh]">
-          
-          {/* Text 1 */}
-          <div ref={text1Ref} className="absolute inset-0 flex flex-col justify-center">
-            <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#D4AF37] mb-6">Phase I: Reconstruction</span>
-            <h2 className="font-serif text-5xl md:text-7xl font-thin text-[#111111] dark:text-[#FCFCFC] leading-tight mb-6">
-              Niacinamide
-            </h2>
-            <p className="font-sans font-light text-lg text-[#333] dark:text-[#CCC] leading-relaxed max-w-md">
-              We extract absolute purity. Our clinical-grade Niacinamide reconstructs the cellular barrier, rewriting the structural integrity of your dermis.
-            </p>
-          </div>
-
-          {/* Text 2 */}
-          <div ref={text2Ref} className="absolute inset-0 flex flex-col justify-center">
-            <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#D4AF37] mb-6">Phase II: Luminosity</span>
-            <h2 className="font-serif text-5xl md:text-7xl font-thin text-[#111111] dark:text-[#FCFCFC] leading-tight mb-6">
-              Pearl Extract
-            </h2>
-            <p className="font-sans font-light text-lg text-[#333] dark:text-[#CCC] leading-relaxed max-w-md">
-              Milled to a microscopic precision. It refracts light from within, replacing artificial highlights with genuine, deep-tissue radiance.
-            </p>
-          </div>
-
-          {/* Text 3 */}
-          <div ref={text3Ref} className="absolute inset-0 flex flex-col justify-center">
-            <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#D4AF37] mb-6">Phase III: Defense</span>
-            <h2 className="font-serif text-5xl md:text-7xl font-thin text-[#111111] dark:text-[#FCFCFC] leading-tight mb-6">
-              Ectoin
-            </h2>
-            <p className="font-sans font-light text-lg text-[#333] dark:text-[#CCC] leading-relaxed max-w-md">
-              Nature’s ultimate extremolyte. It binds hydration at a molecular level, forming an impenetrable, weightless shield against environmental decay.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
     </section>
   );
 }

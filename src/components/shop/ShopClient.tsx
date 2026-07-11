@@ -155,6 +155,7 @@ export default function ShopClient({ products, collections = [] }: { products: a
               src="/shop_campaign.png"
               alt="Campaign"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />

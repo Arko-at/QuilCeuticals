@@ -27,37 +27,37 @@ export default function FAQ() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative w-full py-32 bg-[#FCFCFC] text-[#0A0A0A]">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <span className="text-[10px] uppercase tracking-[0.4em] text-[#1A1A1A]/40 font-bold mb-4 block">Concierge</span>
-          <h2 className="font-serif text-5xl md:text-6xl font-light">Client Services</h2>
+    <section className="relative w-full py-32 bg-[#F8F7F5] dark:bg-[#1C1C1C] transition-colors duration-700">
+      <div className="max-w-4xl mx-auto px-6 lg:px-12">
+        <div className="text-center mb-20">
+          <span className="text-[10px] uppercase tracking-[0.4em] text-stone-500 font-medium mb-4 block">Information</span>
+          <h2 className="font-serif text-4xl md:text-5xl font-light text-[#1C1C1C] dark:text-[#F8F7F5]">Client Services</h2>
         </div>
 
         <div className="relative mb-12">
           <input 
             type="text" 
             placeholder="Search our knowledge base..." 
-            className="w-full bg-[#FDFBF7] border border-[#1A1A1A]/10 rounded-full py-4 px-6 pl-12 font-sans text-sm outline-none focus:border-[#D4AF37] transition-colors"
+            className="w-full bg-[#F2F2F2] dark:bg-[#1A1A1A] border border-stone-200 dark:border-stone-800 text-[#1C1C1C] dark:text-[#F8F7F5] rounded-full py-4 px-6 pl-12 font-sans text-sm outline-none focus:border-stone-400 transition-colors"
           />
-          <Search size={16} className="absolute left-5 top-1/2 -translate-y-1/2 text-[#1A1A1A]/40" />
+          <Search size={16} className="absolute left-5 top-1/2 -translate-y-1/2 text-stone-400" />
         </div>
 
         <div className="space-y-4">
           {faqs.map((faq, idx) => (
             <div 
               key={idx} 
-              className="border-b border-[#1A1A1A]/10 pb-4"
+              className="border-b border-stone-200 dark:border-stone-800 pb-4"
             >
               <button 
                 onClick={() => setActiveIndex(activeIndex === idx ? null : idx)}
-                className="w-full flex items-center justify-between py-4 text-left group"
+                className="w-full flex items-center justify-between py-8 text-left group"
               >
-                <span className={`font-serif text-xl transition-colors duration-300 ${activeIndex === idx ? "text-[#0A0A0A]" : "text-[#1A1A1A]/70 group-hover:text-[#0A0A0A]"}`}>
+                <span className="font-serif text-xl md:text-2xl font-light text-[#1C1C1C] dark:text-[#F8F7F5] text-left group-hover:text-stone-500 transition-colors">
                   {faq.question}
                 </span>
-                <span className="text-[#1A1A1A]/40 group-hover:text-[#D4AF37] transition-colors">
-                  {activeIndex === idx ? <Minus size={20} /> : <Plus size={20} />}
+                <span className="ml-6 flex-shrink-0 text-[#1C1C1C] dark:text-[#F8F7F5] group-hover:text-stone-500 transition-colors">
+                  {activeIndex === idx ? <Minus size={20} strokeWidth={1.5} /> : <Plus size={20} strokeWidth={1.5} />}
                 </span>
               </button>
               
@@ -70,7 +70,7 @@ export default function FAQ() {
                     transition={{ duration: 0.4, ease: [0.19, 1, 0.22, 1] }}
                     className="overflow-hidden"
                   >
-                    <p className="font-sans font-light text-[#1A1A1A]/70 pb-6 leading-relaxed">
+                    <p className="font-sans font-light text-stone-600 dark:text-stone-400 pb-6 leading-relaxed">
                       {faq.answer}
                     </p>
                   </motion.div>

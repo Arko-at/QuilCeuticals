@@ -3,8 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ArrowRight, Lock, ShieldCheck } from "lucide-react";
-import clsx from "clsx";
+import { ArrowRight, Lock, ShieldCheck, Mail } from "lucide-react";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -14,84 +13,98 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative bg-[#fcfcfc] dark:bg-[#050505] mt-auto transition-colors duration-1000">
+    <footer className="relative bg-[#0F0F0F] text-[#F8F7F5] mt-auto">
       
       {/* High-end Value Props Bar */}
-      <div className="bg-stone-100 dark:bg-black py-4 px-6 transition-colors duration-1000 border-t border-b border-stone-200 dark:border-white/5">
-        <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-16 text-center">
-          <div className="flex items-center gap-3 text-stone-900 dark:text-white">
-            <Lock size={14} strokeWidth={1.5} className="text-[#D4AF37]" />
-            <span className="text-[9px] uppercase tracking-[0.3em] font-medium text-stone-600 dark:text-white/70">Encrypted Checkout</span>
+      <div className="bg-[#1C1C1C] py-5 px-6 border-b border-white/5">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-16 text-center">
+          <div className="flex items-center gap-3">
+            <Lock size={14} strokeWidth={1.5} className="text-stone-400" />
+            <span className="text-[10px] uppercase tracking-[0.3em] font-medium text-stone-300">Encrypted Checkout</span>
           </div>
-          <div className="hidden sm:block w-[1px] h-3 bg-stone-300 dark:bg-white/20" />
-          <div className="flex items-center gap-3 text-stone-900 dark:text-white">
-            <ShieldCheck size={14} strokeWidth={1.5} className="text-[#D4AF37]" />
-            <span className="text-[9px] uppercase tracking-[0.3em] font-medium text-stone-600 dark:text-white/70">Clinical Efficacy Guaranteed</span>
+          <div className="hidden sm:block w-[1px] h-3 bg-white/20" />
+          <div className="flex items-center gap-3">
+            <ShieldCheck size={14} strokeWidth={1.5} className="text-stone-400" />
+            <span className="text-[10px] uppercase tracking-[0.3em] font-medium text-stone-300">Clinical Efficacy Guaranteed</span>
           </div>
         </div>
       </div>
 
-      {/* Newsletter Section */}
-      <div className="border-b border-stone-200 dark:border-white/5">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 py-24 md:py-32 flex flex-col items-center text-center">
-          <h2 className="font-serif font-thin text-4xl md:text-6xl text-stone-900 dark:text-white tracking-tight mb-6">
-            Join the <span className="italic text-luxury-gradient">Protocol.</span>
+      {/* Main Footer Content */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-16 py-24 md:py-32 grid grid-cols-1 md:grid-cols-12 gap-16 lg:gap-24">
+        
+        {/* Newsletter Section */}
+        <div className="md:col-span-5 flex flex-col">
+          <h2 className="font-serif font-thin text-4xl text-white tracking-tight mb-4">
+            Join the <span className="italic">Protocol.</span>
           </h2>
-          <p className="font-sans font-light text-stone-500 dark:text-white/60 max-w-md text-sm md:text-base leading-relaxed mb-12">
+          <p className="font-sans font-light text-stone-400 text-sm leading-relaxed mb-8 max-w-md">
             Subscribe to receive exclusive access to our newest formulations, clinical research, and editorial insights.
           </p>
-          
-          <form className="w-full max-w-lg relative" onSubmit={(e) => e.preventDefault()}>
+          <form className="w-full relative" onSubmit={(e) => e.preventDefault()}>
             <input 
               type="email" 
               placeholder="Enter your email address" 
-              className="w-full bg-transparent border-b border-stone-300 dark:border-white/20 py-4 pl-4 pr-12 outline-none focus:border-stone-900 dark:focus:border-white transition-colors text-stone-900 dark:text-white placeholder:text-stone-400 dark:placeholder:text-white/30 font-light"
+              className="w-full bg-transparent border-b border-white/20 py-4 pl-0 pr-12 outline-none focus:border-white transition-colors text-white placeholder:text-white/30 font-light"
               required
             />
             <button 
               type="submit" 
-              className="absolute right-0 top-1/2 -translate-y-1/2 p-4 text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors"
+              className="absolute right-0 top-1/2 -translate-y-1/2 p-2 text-stone-400 hover:text-white transition-colors"
               aria-label="Subscribe"
             >
               <ArrowRight size={20} strokeWidth={1} />
             </button>
           </form>
         </div>
+
+        {/* Links Columns */}
+        <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-12">
+          <div className="flex flex-col gap-6">
+            <h3 className="font-sans text-[10px] uppercase tracking-[0.3em] font-bold text-stone-500 mb-2">Shop</h3>
+            <Link href="/shop" className="font-sans font-light text-sm text-stone-300 hover:text-white transition-colors">All Products</Link>
+            <Link href="/shop/the-catalyst-serum" className="font-sans font-light text-sm text-stone-300 hover:text-white transition-colors">The Catalyst Serum</Link>
+            <Link href="/shop/luminous-pearl-cream" className="font-sans font-light text-sm text-stone-300 hover:text-white transition-colors">Luminous Pearl Cream</Link>
+          </div>
+          <div className="flex flex-col gap-6">
+            <h3 className="font-sans text-[10px] uppercase tracking-[0.3em] font-bold text-stone-500 mb-2">Discover</h3>
+            <Link href="/science" className="font-sans font-light text-sm text-stone-300 hover:text-white transition-colors">The Science</Link>
+            <Link href="/journey" className="font-sans font-light text-sm text-stone-300 hover:text-white transition-colors">Skin Journey</Link>
+            <Link href="/journal" className="font-sans font-light text-sm text-stone-300 hover:text-white transition-colors">The Journal</Link>
+            <Link href="/about" className="font-sans font-light text-sm text-stone-300 hover:text-white transition-colors">About Us</Link>
+          </div>
+          <div className="flex flex-col gap-6">
+            <h3 className="font-sans text-[10px] uppercase tracking-[0.3em] font-bold text-stone-500 mb-2">Support</h3>
+            <Link href="/contact" className="font-sans font-light text-sm text-stone-300 hover:text-white transition-colors">Contact Us</Link>
+            <Link href="/faq" className="font-sans font-light text-sm text-stone-300 hover:text-white transition-colors">FAQ</Link>
+            <Link href="/shipping" className="font-sans font-light text-sm text-stone-300 hover:text-white transition-colors">Shipping & Returns</Link>
+          </div>
+        </div>
       </div>
 
-      {/* Horizontal Links & Copyright */}
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-12">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
-          
-          <Link href="/" className="relative h-10 w-32 shrink-0">
+      {/* Bottom Bar */}
+      <div className="border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 lg:px-16 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <Link href="/" className="relative h-8 w-32 shrink-0">
             <Image
               src="/logo.png"
               alt="QuilCeuticals Logo"
               fill
-              className="object-contain object-left dark:invert opacity-80 transition-all duration-1000"
+              className="object-contain object-left invert opacity-80"
               sizes="128px"
             />
           </Link>
-          
-          <div className="flex flex-wrap justify-center gap-6 md:gap-12">
-            <Link href="/shop" className="text-[10px] uppercase tracking-[0.2em] font-medium text-stone-500 dark:text-white/60 hover:text-stone-900 dark:hover:text-white transition-colors">Shop</Link>
-            <Link href="/science" className="text-[10px] uppercase tracking-[0.2em] font-medium text-stone-500 dark:text-white/60 hover:text-stone-900 dark:hover:text-white transition-colors">Science</Link>
-            <Link href="/journal" className="text-[10px] uppercase tracking-[0.2em] font-medium text-stone-500 dark:text-white/60 hover:text-stone-900 dark:hover:text-white transition-colors">Journal</Link>
-            <Link href="/contact" className="text-[10px] uppercase tracking-[0.2em] font-medium text-stone-500 dark:text-white/60 hover:text-stone-900 dark:hover:text-white transition-colors">Client Services</Link>
-          </div>
-          
-          <div className="flex items-center gap-6 shrink-0">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase tracking-[0.2em] font-medium text-stone-500 dark:text-white/60 hover:text-stone-900 dark:hover:text-white transition-colors">Instagram</a>
-            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="text-[10px] uppercase tracking-[0.2em] font-medium text-stone-500 dark:text-white/60 hover:text-stone-900 dark:hover:text-white transition-colors">TikTok</a>
+
+          <div className="flex items-center gap-6 text-stone-400">
+            <a href="https://instagram.com" className="text-[10px] uppercase tracking-widest hover:text-white transition-colors" aria-label="Instagram">Instagram</a>
+            <a href="https://facebook.com" className="text-[10px] uppercase tracking-widest hover:text-white transition-colors" aria-label="Facebook">Facebook</a>
+            <a href="https://twitter.com" className="text-[10px] uppercase tracking-widest hover:text-white transition-colors" aria-label="Twitter">Twitter</a>
           </div>
 
-        </div>
-        
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] uppercase tracking-[0.3em] font-light text-stone-400 dark:text-white/30 pt-8 border-t border-stone-200 dark:border-white/10 transition-colors duration-1000">
-          <p>© {new Date().getFullYear()} QUILCEUTICALS. All Rights Reserved.</p>
-          <div className="flex items-center gap-6">
-            <Link href="/privacy" className="hover:text-stone-600 dark:hover:text-white/70 transition-colors">Privacy Architecture</Link>
-            <span>Global Shipping</span>
+          <div className="flex flex-col md:flex-row items-center gap-4 text-[10px] uppercase tracking-widest font-light text-stone-500">
+            <p>© {new Date().getFullYear()} QUILCEUTICALS. All Rights Reserved.</p>
+            <div className="hidden md:block w-[1px] h-3 bg-white/20" />
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
           </div>
         </div>
       </div>

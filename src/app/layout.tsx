@@ -69,7 +69,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className="min-h-full flex flex-col bg-[#F9F9F9] dark:bg-[#111111] text-[#111111] dark:text-[#F9F9F9] font-sans font-light tracking-[0.015em] selection:bg-[#111111] selection:text-[#F9F9F9] dark:selection:bg-[#F9F9F9] dark:selection:text-[#111111] transition-colors duration-700 ease-in-out"
+        className="min-h-full flex flex-col bg-[#F8F7F5] dark:bg-[#1C1C1C] text-[#1C1C1C] dark:text-[#F8F7F5] font-sans font-light tracking-[0.015em] selection:bg-[#1C1C1C] selection:text-[#F8F7F5] dark:selection:bg-[#F8F7F5] dark:selection:text-[#1C1C1C] transition-colors duration-700 ease-in-out"
         suppressHydrationWarning
       >
         <SmoothScroller>
