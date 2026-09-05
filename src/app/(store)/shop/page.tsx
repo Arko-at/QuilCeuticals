@@ -12,7 +12,8 @@ import ShopClient from "@/components/shop/ShopClient";
 import { Suspense } from "react";
 
 export default async function ShopPage() {
-  const dbProducts = await getProducts();
+  const dbProductsRaw = await getProducts();
+  const dbProducts = (dbProductsRaw || []).filter((p: any) => p.in_stock === true);
   const dbCollections = await getCollections();
   
   const getSizing = (product: any) => {

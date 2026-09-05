@@ -16,7 +16,7 @@ export default async function Home() {
   let products = [];
   try {
     const dbProducts = await getProducts();
-    if (dbProducts) products = dbProducts;
+    if (dbProducts) products = dbProducts.filter((p: any) => p.in_stock === true);
   } catch (error) {
     console.error("Failed to fetch products for home page:", error);
   }

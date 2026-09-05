@@ -12,13 +12,8 @@ export default async function ShopProductDetail({ params }: Props) {
     const decodedId = decodeURIComponent(id);
     const productData = await getProductBySlug(decodedId);
     
-    if (!productData) {
-      return (
-        <div className="pt-32 px-12 pb-32">
-          <h1>Debug: Product returned null</h1>
-          <pre>Requested Slug: {id}</pre>
-        </div>
-      );
+    if (!productData || productData.in_stock === false) {
+      return notFound();
     }
 
     // Determine niche-specific details based on category or name
@@ -103,7 +98,7 @@ export default async function ShopProductDetail({ params }: Props) {
 
     const allProducts = await getProducts();
     const relatedProducts = allProducts
-      .filter((p: any) => p.id !== productData.id)
+      .filter((p: any) => p.id !== productData.id && p.in_stock === true)
       .sort(() => 0.5 - Math.random()) // naive shuffle
       .slice(0, 2)
       .map((p: any) => {
