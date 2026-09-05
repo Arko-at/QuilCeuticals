@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { supabase } from "@/lib/supabase";
@@ -14,6 +14,32 @@ export default function AdminLoginPage() {
   const [errorMsg, setErrorMsg] = useState("");
   const [isResetMode, setIsResetMode] = useState(false);
   const [resetSent, setResetSent] = useState(false);
+  
+  // New state for handling password update after clicking email link
+  const [isUpdatePasswordMode, setIsUpdatePasswordMode] = useState(false);
+  const [newPassword, setNewPassword] = useState("");
+
+  useEffect(() => {
+    // Listen for password recovery event
+    const { data: authListener } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        if (event === 'PASSWORD_RECOVERY') {
+          setIsUpdatePasswordMode(true);
+        }
+      }
+    );
+    
+    // Fallback: check URL for reset flag
+    if (typeof window !== "undefined" && window.location.href.includes("reset=true")) {
+      supabase.auth.getSession().then(({ data: { session } }) => {
+        if (session) setIsUpdatePasswordMode(true);
+      });
+    }
+
+    return () => {
+      authListener.subscription.unsubscribe();
+    };
+  }, []);
 
   // Check if env variables exist
   const isBypassMode = 
@@ -75,6 +101,28 @@ export default function AdminLoginPage() {
       setLoading(false);
     }
   };
+  const handleUpdatePassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setErrorMsg("");
+
+    try {
+      const { error } = await supabase.auth.updateUser({
+        password: newPassword,
+      });
+
+      if (error) {
+        setErrorMsg(error.message);
+      } else {
+        // Password updated successfully, redirect to dashboard
+        router.push("/admin/dashboard");
+      }
+    } catch (err) {
+      setErrorMsg("Failed to update password.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#fcfcfc] dark:bg-[#0a0a0a] flex flex-col justify-center py-12 sm:px-6 lg:px-8 font-sans">
@@ -90,10 +138,18 @@ export default function AdminLoginPage() {
           />
         </div>
         <h2 className="text-2xl font-bold tracking-tight text-stone-900 dark:text-white">
-          {isResetMode ? "Reset your password" : "Log in to QuilCeuticals"}
+          {isUpdatePasswordMode 
+            ? "Set new password" 
+            : isResetMode 
+              ? "Reset your password" 
+              : "Log in to QuilCeuticals"}
         </h2>
         <p className="mt-2 text-sm text-stone-500">
-          {isResetMode ? "Enter your email to receive a recovery link" : "Secure administration hub"}
+          {isUpdatePasswordMode
+            ? "Enter your new secure password below"
+            : isResetMode 
+              ? "Enter your email to receive a recovery link" 
+              : "Secure administration hub"}
         </p>
       </div>
 
@@ -114,7 +170,34 @@ export default function AdminLoginPage() {
             </div>
           )}
 
-          {resetSent ? (
+          {isUpdatePasswordMode ? (
+            <form className="space-y-5" onSubmit={handleUpdatePassword}>
+              <div>
+                <label htmlFor="newPassword" className="block text-sm font-medium text-stone-900 dark:text-stone-200 mb-1.5">
+                  New Password
+                </label>
+                <input
+                  id="newPassword"
+                  type="password"
+                  required
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  className="w-full bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-md px-3 py-2 outline-none focus:border-stone-900 dark:focus:border-stone-500 transition-colors text-sm text-stone-900 dark:text-white"
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full flex items-center justify-center gap-2 bg-stone-900 dark:bg-white text-white dark:text-stone-900 font-medium text-sm py-2.5 rounded-md hover:bg-stone-800 dark:hover:bg-stone-100 transition-all duration-300 shadow-sm disabled:opacity-70 mt-2"
+              >
+                {loading ? (
+                  <Loader2 className="animate-spin" size={16} />
+                ) : (
+                  <span>Update Password</span>
+                )}
+              </button>
+            </form>
+          ) : resetSent ? (
             <div className="text-center space-y-6">
               <div className="p-4 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 rounded-lg text-emerald-700 dark:text-emerald-400 text-sm">
                 A password reset link has been sent to <strong>{email}</strong>.
