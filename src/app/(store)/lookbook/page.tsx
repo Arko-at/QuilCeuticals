@@ -45,8 +45,8 @@ export default function LookbookPage() {
         </div>
 
         <div className="mt-48 text-center">
-           <Link href="/shop" className="border border-stone-900 dark:border-white px-12 py-4 text-[10px] uppercase tracking-[0.3em] font-bold text-stone-900 dark:text-white hover:bg-stone-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
-              Shop the Collection
+           <Link href="/shop" className="btn-animated">
+             <span>Explore Collection</span>
            </Link>
         </div>
       </div>

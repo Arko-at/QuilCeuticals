@@ -17,9 +17,9 @@ const megaMenuContent = {
     image: "/QuilCeutic_mega_menu.jpeg",
     links: [
       { name: "All Products", href: "/shop" },
-      { name: "The Catalyst Serum", href: "/shop/the-catalyst-serum" },
-      { name: "Luminous Pearl Cream", href: "/shop/luminous-pearl-cream" },
-      { name: "Ectoin Barrier Shield", href: "/shop/ectoin-barrier-shield" },
+      { name: "QuilCeuticals Face Cream", href: "/shop/the-face-cream" },
+      { name: "QuilCeuticals Body Lotion", href: "/shop/the-body-lotion" },
+      { name: "QuilCeuticals Cleanser", href: "/shop/the-cleanser" },
     ]
   },
   Science: {
@@ -48,7 +48,7 @@ export default function Navbar() {
 
   const announcements = [
     "Complimentary shipping on all orders over $150.",
-    "Discover the new Luminous Pearl Cream.",
+    "Discover the new QuilCeuticals Face Cream.",
     "Exclusive: Join QuilCeuticals Studio for benefits."
   ];
 

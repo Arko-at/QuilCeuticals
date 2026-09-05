@@ -67,8 +67,8 @@ export default function ProductStory() {
               The result is an unparalleled experience that bridges the gap between clinical efficacy and pure luxury.
             </p>
             
-            <Link href="/journey" className="group flex items-center justify-center bg-[#1C1C1C] dark:bg-[#F8F7F5] text-white dark:text-[#1C1C1C] px-8 py-4 rounded-full hover:opacity-90 transition-opacity w-max">
-              <span className="font-sans text-xs tracking-widest uppercase font-medium">Read Our Story</span>
+            <Link href="/journey" className="btn-animated w-max">
+              <span>Discover The Journey</span>
             </Link>
           </motion.div>
         </div>

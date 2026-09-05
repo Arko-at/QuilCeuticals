@@ -153,12 +153,12 @@ export default function CartDrawer() {
                 <div className="flex gap-3 mb-4">
                   <button 
                     onClick={() => setIsOpen(false)}
-                    className="flex-1 border border-stone-200 dark:border-stone-800 py-4 text-[10px] uppercase tracking-[0.2em] font-bold text-stone-900 dark:text-white hover:bg-stone-50 dark:hover:bg-stone-900 transition-colors"
+                    className="flex-1 btn-animated"
                   >
-                    Update
+                    <span>Update</span>
                   </button>
-                  <Link href="/checkout" onClick={() => setIsOpen(false)} className="flex-1 flex items-center justify-center py-4 bg-black dark:bg-white text-white dark:text-black text-[10px] uppercase tracking-[0.2em] font-bold hover:opacity-80 transition-opacity">
-                    Checkout
+                  <Link href="/checkout" onClick={() => setIsOpen(false)} className="flex-1 btn-animated">
+                    <span>Checkout</span>
                   </Link>
                 </div>
                 

@@ -35,6 +35,7 @@ export async function getProductBySlug(slug: string) {
   return data;
 }
 export async function createProduct(productData: any) {
+  delete productData.variants;
   productData.slug = await generateUniqueSlug("products", productData.slug || productData.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""));
   const { data, error } = await supabaseAdmin.from("products").insert([productData]).select().single();
   if (error) {
@@ -48,6 +49,7 @@ export async function createProduct(productData: any) {
   return { success: true, data };
 }
 export async function updateProduct(id: string, productData: any) {
+  delete productData.variants;
   if (productData.slug) {
     productData.slug = await generateUniqueSlug("products", productData.slug, id);
   }
@@ -445,3 +447,145 @@ export async function permanentlyDeleteAnnouncement(id: string) {
   if (error) throw error;
   return true;
 }
+
+// ---------------------------------------------------------------------------
+// QUILCEUTICALS CMS: ARTICLES (JOURNAL)
+// ---------------------------------------------------------------------------
+export async function getArticles() {
+  const { data } = await supabaseAdmin.from("articles").select("*").order("created_at", { ascending: false });
+  return data || [];
+}
+export async function getArticleBySlug(slug: string) {
+  const { data } = await supabaseAdmin.from("articles").select("*").eq("slug", slug).single();
+  return data;
+}
+export async function createArticle(articleData: any) {
+  articleData.slug = await generateUniqueSlug("articles", articleData.slug || articleData.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""));
+  const { data, error } = await supabaseAdmin.from("articles").insert([articleData]).select().single();
+  if (error) throw error;
+  revalidatePath('/journal');
+  return { success: true, data };
+}
+export async function updateArticle(id: string, articleData: any) {
+  if (articleData.slug) {
+    articleData.slug = await generateUniqueSlug("articles", articleData.slug, id);
+  }
+  const { data, error } = await supabaseAdmin.from("articles").update(articleData).eq("id", id).select().single();
+  if (error) throw error;
+  revalidatePath('/journal');
+  return { success: true, data };
+}
+export async function deleteArticle(id: string) {
+  const { error } = await supabaseAdmin.from("articles").delete().eq("id", id);
+  if (error) throw error;
+  revalidatePath('/journal');
+  return true;
+}
+
+// ---------------------------------------------------------------------------
+// QUILCEUTICALS CMS: INGREDIENTS
+// ---------------------------------------------------------------------------
+export async function getIngredients() {
+  const { data } = await supabaseAdmin.from("ingredients").select("*").order("name", { ascending: true });
+  return data || [];
+}
+export async function createIngredient(ingredientData: any) {
+  ingredientData.slug = await generateUniqueSlug("ingredients", ingredientData.slug || ingredientData.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""));
+  const { data, error } = await supabaseAdmin.from("ingredients").insert([ingredientData]).select().single();
+  if (error) throw error;
+  revalidatePath('/science');
+  return { success: true, data };
+}
+export async function updateIngredient(id: string, ingredientData: any) {
+  if (ingredientData.slug) {
+    ingredientData.slug = await generateUniqueSlug("ingredients", ingredientData.slug, id);
+  }
+  const { data, error } = await supabaseAdmin.from("ingredients").update(ingredientData).eq("id", id).select().single();
+  if (error) throw error;
+  revalidatePath('/science');
+  return { success: true, data };
+}
+export async function deleteIngredient(id: string) {
+  const { error } = await supabaseAdmin.from("ingredients").delete().eq("id", id);
+  if (error) throw error;
+  revalidatePath('/science');
+  return true;
+}
+
+// ---------------------------------------------------------------------------
+// QUILCEUTICALS CMS: SKIN CONCERNS
+// ---------------------------------------------------------------------------
+export async function getSkinConcerns() {
+  const { data } = await supabaseAdmin.from("skin_concerns").select("*").order("title", { ascending: true });
+  return data || [];
+}
+export async function createSkinConcern(concernData: any) {
+  concernData.slug = await generateUniqueSlug("skin_concerns", concernData.slug || concernData.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""));
+  const { data, error } = await supabaseAdmin.from("skin_concerns").insert([concernData]).select().single();
+  if (error) throw error;
+  revalidatePath('/science');
+  return { success: true, data };
+}
+export async function updateSkinConcern(id: string, concernData: any) {
+  if (concernData.slug) {
+    concernData.slug = await generateUniqueSlug("skin_concerns", concernData.slug, id);
+  }
+  const { data, error } = await supabaseAdmin.from("skin_concerns").update(concernData).eq("id", id).select().single();
+  if (error) throw error;
+  revalidatePath('/science');
+  return { success: true, data };
+}
+export async function deleteSkinConcern(id: string) {
+  const { error } = await supabaseAdmin.from("skin_concerns").delete().eq("id", id);
+  if (error) throw error;
+  revalidatePath('/science');
+  return true;
+}
+
+// ---------------------------------------------------------------------------
+// QUILCEUTICALS CMS: FAQ
+// ---------------------------------------------------------------------------
+export async function getFAQs() {
+  const { data } = await supabaseAdmin.from("faq").select("*").order("order", { ascending: true });
+  return data || [];
+}
+export async function createFAQ(faqData: any) {
+  const { data, error } = await supabaseAdmin.from("faq").insert([faqData]).select().single();
+  if (error) throw error;
+  return { success: true, data };
+}
+export async function updateFAQ(id: string, faqData: any) {
+  const { data, error } = await supabaseAdmin.from("faq").update(faqData).eq("id", id).select().single();
+  if (error) throw error;
+  return { success: true, data };
+}
+export async function deleteFAQ(id: string) {
+  const { error } = await supabaseAdmin.from("faq").delete().eq("id", id);
+  if (error) throw error;
+  return true;
+}
+
+// ---------------------------------------------------------------------------
+// QUILCEUTICALS CMS: REVIEWS
+// ---------------------------------------------------------------------------
+export async function getReviews() {
+  const { data } = await supabaseAdmin.from("reviews").select(`
+    *,
+    products (
+      title,
+      image_urls
+    )
+  `).order("created_at", { ascending: false });
+  return data || [];
+}
+export async function updateReview(id: string, reviewData: any) {
+  const { data, error } = await supabaseAdmin.from("reviews").update(reviewData).eq("id", id).select().single();
+  if (error) throw error;
+  return { success: true, data };
+}
+export async function deleteReview(id: string) {
+  const { error } = await supabaseAdmin.from("reviews").delete().eq("id", id);
+  if (error) throw error;
+  return true;
+}
+

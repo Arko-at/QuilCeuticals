@@ -57,10 +57,13 @@ export default function AboutPage() {
       {/* Content Section */}
       <div className="max-w-4xl mx-auto px-6 lg:px-12 py-32 md:py-48 text-center relative z-10">
         <h2 className="font-serif font-light text-4xl md:text-5xl mb-12 leading-snug">
-          We believe that clinical efficacy should never compromise on luxury.
+          Just Your Skin. Skincare should serve your skin—not the algorithm.
         </h2>
+        <p className="font-sans font-light text-stone-600 dark:text-stone-400 leading-relaxed text-base md:text-lg tracking-wide max-w-2xl mx-auto mb-6">
+          QuilCeuticals is a premium dermocosmetic skincare brand combining Italian craftsmanship, natural-origin science, barrier-conscious care, and purposeful simplicity. We are not built around excessive routines or viral ingredients.
+        </p>
         <p className="font-sans font-light text-stone-600 dark:text-stone-400 leading-relaxed text-base md:text-lg tracking-wide max-w-2xl mx-auto">
-          QuilCeuticals was founded on a singular premise: to bridge the gap between rigorous, scientifically-proven dermatological treatments and the sensorial, premium experience of high-end beauty. Every formulation is a precise architectural balance of active extremolytes, engineered to reconstruct the skin's cellular barrier while delivering an unparalleled tactile experience.
+          Our objective is sophisticated, purposeful skincare in which every product has a defined role. By focusing on essential repair and innate barrier architecture, we provide care for the skin that needs support, not noise.
         </p>
 
         <div className="mt-24">

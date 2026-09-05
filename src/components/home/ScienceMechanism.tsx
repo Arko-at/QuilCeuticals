@@ -145,8 +145,8 @@ export default function ScienceMechanism() {
         </div>
 
         <div className="flex justify-center relative z-10">
-          <Link href="/science" className="bg-[#D1A68D] hover:bg-[#C19880] text-white font-sans text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] py-4 px-10 text-center transition-colors inline-block rounded-sm">
-            HOW QUILBIOTICS™ TECHNOLOGY WORKS
+          <Link href="/science" className="btn-animated">
+            <span>Explore The Science</span>
           </Link>
         </div>
 

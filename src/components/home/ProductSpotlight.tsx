@@ -19,7 +19,7 @@ export default function ProductSpotlight() {
 
   return (
     <section ref={containerRef} className="relative w-full py-32 px-6 lg:px-24 bg-[#F8F7F5] dark:bg-[#1C1C1C] transition-colors duration-700 overflow-hidden">
-      
+
       <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-end justify-between mb-24 gap-8">
         <div>
           <span className="font-sans text-[10px] tracking-[0.4em] uppercase text-[#D1A68D] mb-4 block font-bold">The Regimen</span>
@@ -27,10 +27,10 @@ export default function ProductSpotlight() {
             Just Your Skin.
           </h2>
         </div>
-        
+
         <div className="flex flex-col items-start md:items-end max-w-lg">
           <p className="font-sans font-light text-sm md:text-base text-stone-600 dark:text-stone-400 leading-relaxed mb-6 md:text-right">
-            Meticulously formulated to empower your skin's innate healing architecture. Our foundational 3-step regimen—Face Cream, Body Lotion, and Body Wash—addresses the root causes of cellular decline.
+            Meticulously formulated to support your skin's innate barrier architecture. Our foundational 3-step regimen—Cleanser, Face Cream, and Body Lotion—respects the skin rather than overwhelming it.
           </p>
           <Link href="/shop" className="group flex items-center gap-3 text-[#1C1C1C] dark:text-[#F8F7F5] hover:opacity-70 transition-opacity whitespace-nowrap border-b border-stone-200 dark:border-stone-700 pb-1">
             <span className="font-sans text-[10px] tracking-[0.2em] uppercase font-bold">Explore The Collection</span>
@@ -40,10 +40,10 @@ export default function ProductSpotlight() {
 
       {/* Alternating Zigzag Layout */}
       <div className="w-full max-w-7xl mx-auto flex flex-col gap-24 lg:gap-32">
-        
+
         {/* Product 1: The Face Cream */}
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-24 group">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -51,26 +51,25 @@ export default function ProductSpotlight() {
             className="w-full md:w-5/12"
             style={{ y: y1 }}
           >
-            <Link href="/shop/the-face-cream" className="block w-full relative overflow-hidden rounded-sm transition-colors duration-700 shadow-xl group bg-stone-100 dark:bg-stone-900">
-                <Image 
-                  src="/Quil-faceCream/Quil-faceCream.jpg" 
-                  alt="The Face Cream" 
-                  width={800}
-                  height={800}
-                  sizes="(max-width: 768px) 100vw, 40vw"
-                  className="w-full h-auto object-cover transition-all duration-1000 group-hover:scale-105"
-                />
-                <Image 
-                  src="/Quil-faceCream/Quil-faceCream-Hover.jpg" 
-                  alt="The Face Cream Texture" 
-                  fill 
-                  sizes="(max-width: 768px) 100vw, 40vw"
-                  className="object-cover absolute inset-0 z-10 transition-all duration-1000 opacity-0 group-hover:opacity-100 group-hover:scale-105"
-                />
+            <Link href="/shop/the-face-cream" className="block w-full relative aspect-[4/5] group">
+              <Image
+                src="/QUILCEUTICALS-PRODUCT-IMAGES/Face-cream-jar.jpeg"
+                alt="QuilCeuticals Face Cream"
+                fill
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-contain mix-blend-multiply p-0 md:p-2 transition-all duration-1000 group-hover:opacity-0 group-hover:scale-105"
+              />
+              <Image
+                src="/QUILCEUTICALS-PRODUCT-IMAGES/face-cream-withPack.jpeg"
+                alt="QuilCeuticals Face Cream Packaging"
+                fill
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-contain mix-blend-multiply p-0 md:p-2 absolute inset-0 z-10 transition-all duration-1000 opacity-0 group-hover:opacity-100 group-hover:scale-105"
+              />
             </Link>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -78,16 +77,16 @@ export default function ProductSpotlight() {
             className="w-full md:w-7/12 flex flex-col justify-center"
           >
             <span className="font-sans font-light text-stone-500 uppercase tracking-[0.2em] text-[10px] md:text-xs mb-4 block">
-              Deep Cellular Rejuvenation
+              Purposeful Hydration & Support
             </span>
             <h3 className="font-serif text-3xl md:text-5xl font-light text-[#1C1C1C] dark:text-[#F8F7F5] mb-6">
               The Face Cream
             </h3>
             <p className="font-sans font-light text-base md:text-lg text-stone-600 dark:text-stone-400 leading-relaxed mb-8 max-w-xl">
-              Clinically engineered to target the root causes of epidermal decline. Our signature Face Cream utilizes the proprietary Peptide-Lipid Complex to reconstruct cellular barriers, deeply hydrating while visibly reducing fine lines and fatigue. A singular solution for complete facial rejuvenation.
+              A sophisticated daily face cream that supports the skin rather than overwhelming it. Featuring targeted 4% Niacinamide, Ectoin, and Ceramides to deeply hydrate, protect the barrier, and provide a healthy luminous appearance without relying on unnecessary viral trends. Just Your Skin™️.
             </p>
             <div className="flex items-center gap-8">
-              <span className="font-sans text-lg font-medium text-[#1C1C1C] dark:text-[#F8F7F5]">$265</span>
+              <span className="font-sans text-lg font-medium text-[#1C1C1C] dark:text-[#F8F7F5]">$114</span>
               <Link href="/shop/the-face-cream" className="font-sans text-[10px] tracking-[0.2em] uppercase font-bold text-[#D1A68D] hover:text-[#C19880] transition-colors border-b border-[#D1A68D] hover:border-[#C19880] pb-1">
                 Discover More
               </Link>
@@ -97,7 +96,7 @@ export default function ProductSpotlight() {
 
         {/* Product 2: The Body Lotion */}
         <div className="flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-24 group">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -105,26 +104,25 @@ export default function ProductSpotlight() {
             className="w-full md:w-4/12"
             style={{ y: y2 }}
           >
-            <Link href="/shop/the-body-lotion" className="block w-full relative overflow-hidden rounded-sm transition-colors duration-700 shadow-xl group bg-stone-100 dark:bg-stone-900">
-                <Image 
-                  src="/Quil-lotion/Quil-lotion.jpg" 
-                  alt="The Body Lotion" 
-                  width={800}
-                  height={800}
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="w-full h-auto object-cover transition-all duration-1000 group-hover:scale-105"
-                />
-                <Image 
-                  src="/Quil-lotion/Quil-lotion-hover.jpg" 
-                  alt="The Body Lotion Texture" 
-                  fill 
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover absolute inset-0 z-10 transition-all duration-1000 opacity-0 group-hover:opacity-100 group-hover:scale-105"
-                />
+            <Link href="/shop/the-body-lotion" className="block w-full relative aspect-[4/5] group">
+              <Image
+                src="/QUILCEUTICALS-PRODUCT-IMAGES/BODY-LOTION.png"
+                alt="QuilCeuticals Body Lotion"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-contain mix-blend-multiply p-0 md:p-2 transition-all duration-1000 group-hover:opacity-0 group-hover:scale-105"
+              />
+              <Image
+                src="/QUILCEUTICALS-PRODUCT-IMAGES/BODY-LOTION-PACK.png"
+                alt="QuilCeuticals Body Lotion Packaging"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-contain mix-blend-multiply p-0 md:p-2 absolute inset-0 z-10 transition-all duration-1000 opacity-0 group-hover:opacity-100 group-hover:scale-105"
+              />
             </Link>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -132,16 +130,16 @@ export default function ProductSpotlight() {
             className="w-full md:w-8/12 flex flex-col justify-center items-start md:items-end text-left md:text-right"
           >
             <span className="font-sans font-light text-stone-500 uppercase tracking-[0.2em] text-[10px] md:text-xs mb-4 block">
-              Barrier Support & Firming
+              Face-Level Thinking for Body Skin
             </span>
             <h3 className="font-serif text-3xl md:text-5xl font-light text-[#1C1C1C] dark:text-[#F8F7F5] mb-6">
               The Body Lotion
             </h3>
             <p className="font-sans font-light text-base md:text-lg text-stone-600 dark:text-stone-400 leading-relaxed mb-8 max-w-xl">
-              Extend the power of cellular healing to your entire body. This rich, fast-absorbing lotion combines clinical-grade Niacinamide with potent botanicals to instantly soothe, firm, and restore skin’s natural elasticity, leaving it flawlessly smooth and resilient.
+              Your body is skin too. Extend the philosophy of sophisticated skincare into daily body care. This barrier-conscious lotion combines 3% Niacinamide with purposeful actives to moisturize, condition, and support healthy-looking skin beyond mere temporary softness.
             </p>
             <div className="flex items-center gap-8 flex-row-reverse md:flex-row">
-              <span className="font-sans text-lg font-medium text-[#1C1C1C] dark:text-[#F8F7F5]">$105</span>
+              <span className="font-sans text-lg font-medium text-[#1C1C1C] dark:text-[#F8F7F5]">$65</span>
               <Link href="/shop/the-body-lotion" className="font-sans text-[10px] tracking-[0.2em] uppercase font-bold text-[#D1A68D] hover:text-[#C19880] transition-colors border-b border-[#D1A68D] hover:border-[#C19880] pb-1">
                 Discover More
               </Link>
@@ -151,27 +149,32 @@ export default function ProductSpotlight() {
 
         {/* Product 3: The Body Wash */}
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-24 group">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="w-full md:w-5/12"
           >
-            <Link href="/shop/the-body-wash" className="block w-full relative aspect-[4/5] bg-[#EFECE7] dark:bg-[#2A2A2A] overflow-hidden rounded-sm transition-colors duration-700 shadow-xl">
-              <motion.div style={{ y: y3 }} className="absolute inset-0 -top-[15%] -bottom-[15%]">
-                <Image 
-                  src="/regimen_architecture.png" 
-                  alt="The Body Wash" 
-                  fill 
-                  sizes="(max-width: 768px) 100vw, 40vw"
-                  className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                />
-              </motion.div>
+            <Link href="/shop/the-cleanser" className="block w-full relative aspect-[4/5] group">
+              <Image
+                src="/QUILCEUTICALS-PRODUCT-IMAGES/BODY-CLEANER.jpeg"
+                alt="QuilCeuticals Cleanser"
+                fill
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-contain mix-blend-multiply p-0 md:p-2 transition-all duration-1000 group-hover:opacity-0 group-hover:scale-105"
+              />
+              <Image
+                src="/QUILCEUTICALS-PRODUCT-IMAGES/BODY-CLEANSER-PACK.jpeg"
+                alt="QuilCeuticals Cleanser Packaging"
+                fill
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-contain mix-blend-multiply p-0 md:p-2 absolute inset-0 z-10 transition-all duration-1000 opacity-0 group-hover:opacity-100 group-hover:scale-105"
+              />
             </Link>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -179,17 +182,17 @@ export default function ProductSpotlight() {
             className="w-full md:w-7/12 flex flex-col justify-center"
           >
             <span className="font-sans font-light text-stone-500 uppercase tracking-[0.2em] text-[10px] md:text-xs mb-4 block">
-              Purifying Molecular Cleanse
+              Barrier-Conscious Care
             </span>
             <h3 className="font-serif text-3xl md:text-5xl font-light text-[#1C1C1C] dark:text-[#F8F7F5] mb-6">
-              The Body Wash
+              The Cleanser
             </h3>
             <p className="font-sans font-light text-base md:text-lg text-stone-600 dark:text-stone-400 leading-relaxed mb-8 max-w-xl">
-              A transformative, sulfate-free cleanse. Powered by Marine Extremolytes, this purifying wash gently removes impurities without stripping your skin’s delicate microbiome. It perfectly preps your body’s canvas to receive and lock in deep hydration.
+              Cleanse your skin. Don't fight it. A premium cleansing experience that removes what the skin doesn't need without treating the skin itself as the problem. Effective, purposeful cleansing that respects the barrier and perfectly prepares your canvas for the steps that follow.
             </p>
             <div className="flex items-center gap-8">
-              <span className="font-sans text-lg font-medium text-[#1C1C1C] dark:text-[#F8F7F5]">$55</span>
-              <Link href="/shop/the-body-wash" className="font-sans text-[10px] tracking-[0.2em] uppercase font-bold text-[#D1A68D] hover:text-[#C19880] transition-colors border-b border-[#D1A68D] hover:border-[#C19880] pb-1">
+              <span className="font-sans text-lg font-medium text-[#1C1C1C] dark:text-[#F8F7F5]">$50</span>
+              <Link href="/shop/the-cleanser" className="font-sans text-[10px] tracking-[0.2em] uppercase font-bold text-[#D1A68D] hover:text-[#C19880] transition-colors border-b border-[#D1A68D] hover:border-[#C19880] pb-1">
                 Discover More
               </Link>
             </div>

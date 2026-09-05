@@ -8,25 +8,25 @@ const reviews = [
     id: 1,
     name: "Sarah Jenkins",
     verified: true,
-    text: "The Cellular Matrix serum completely transformed my barrier. After years of rosacea, my skin is finally calm and luminous.",
+    text: "The Face Cream completely transformed my barrier. After years of rosacea, my skin is finally calm, hydrated, and resilient.",
     rating: 5,
-    product: "The Catalyst Serum"
+    product: "The Face Cream"
   },
   {
     id: 2,
     name: "Michael Chen",
     verified: true,
-    text: "Unbelievable texture. It absorbs instantly but leaves this incredible, lasting hydration. Truly medical grade.",
+    text: "Unbelievable texture. This body lotion absorbs instantly but leaves incredible, lasting hydration and smoothness. Truly purposeful.",
     rating: 5,
-    product: "Deep Dermis Hydrator"
+    product: "The Body Lotion"
   },
   {
     id: 3,
     name: "Emma Sterling",
     verified: true,
-    text: "You can feel the pearl extract working. My complexion looks like glass. The finest skincare investment I've made.",
+    text: "Finally, a cleanser that doesn't treat my skin like the enemy. It removes everything it needs to while leaving my barrier perfectly intact.",
     rating: 5,
-    product: "Luminous Pearl Cream"
+    product: "The Cleanser"
   }
 ];
 

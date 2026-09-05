@@ -5,28 +5,28 @@ import Image from "next/image";
 
 const ingredients = [
   {
-    bgText: "peptides",
+    bgText: "ectoin",
     tag: "for the face cream",
-    title: "PEPTIDE-LIPID COMPLEX",
-    subtitle: "Cellular Rejuvenation",
-    description: "Engineered to rebuild the facial epidermis, visibly reducing fine lines while locking in absolute hydration.",
+    title: "ECTOIN & PEARL",
+    subtitle: "Barrier Shield & Luminous Support",
+    description: "Reconstructs cellular barriers, deeply hydrating while visibly reducing fatigue without relying on unnecessary trends.",
+    image: "/images/ectoin_crystals.png"
+  },
+  {
+    bgText: "niacin",
+    tag: "for the body lotion",
+    title: "3% NIACINAMIDE & NAG",
+    subtitle: "Purposeful Conditioning",
+    description: "A sophisticated matrix that instantly smooths the body's texture, providing firming support beyond mere temporary softness.",
     image: "/images/niacinamide_texture.png"
   },
   {
-    bgText: "shea",
-    tag: "for the body lotion",
-    title: "NIACINAMIDE & SHEA",
-    subtitle: "Barrier Support",
-    description: "A nutrient-rich matrix that intensely hydrates and smooths the body's texture, supporting natural renewal.",
-    image: "/images/pearl_extract.png"
-  },
-  {
-    bgText: "marine",
-    tag: "for the body wash",
-    title: "MARINE EXTREMOLYTES",
+    bgText: "barrier",
+    tag: "for the cleanser",
+    title: "BARRIER-CONSCIOUS ACTIVES",
     subtitle: "Gentle Purification",
-    description: "A revitalizing, sulfate-free cleanse that purifies without stripping, leaving the skin perfectly prepped.",
-    image: "/images/ectoin_crystals.png"
+    description: "Removes what the skin doesn't need without treating the skin itself as the problem. The first step respects every step that follows.",
+    image: "/images/pearl_extract.png"
   }
 ];
 

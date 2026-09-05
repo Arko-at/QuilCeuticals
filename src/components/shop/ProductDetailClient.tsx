@@ -376,16 +376,16 @@ export default function ProductDetailClient({ productData }: { productData: any 
                  <button 
                     onClick={handleAddToCart} 
                     disabled={adding} 
-                    className="flex-1 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-stone-900 dark:text-white py-4 text-[12px] font-medium tracking-[0.1em] uppercase hover:bg-stone-50 dark:hover:bg-stone-800 transition-all disabled:opacity-50 shadow-sm"
+                    className="flex-1 btn-animated"
                  >
-                    {adding ? "Adding..." : "Add to Bag"}
+                    <span>{adding ? "Adding..." : "Add to Bag"}</span>
                  </button>
                  <button 
                     onClick={() => { handleAddToCart(); setTimeout(() => router.push(`/checkout?method=${quickPayMethod}`), 300); }} 
                     disabled={adding} 
-                    className="flex-1 bg-stone-900 dark:bg-white text-white dark:text-stone-900 py-4 text-[12px] font-medium tracking-[0.1em] uppercase hover:opacity-90 transition-all disabled:opacity-50 shadow-sm"
+                    className="flex-1 btn-animated"
                  >
-                    {quickPayLabel}
+                    <span>{quickPayLabel}</span>
                  </button>
               </div>
           </div>

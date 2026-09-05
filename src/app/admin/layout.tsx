@@ -25,7 +25,12 @@ import {
   Sun,
   Moon,
   FolderKanban,
-  Mail
+  Mail,
+  MessageCircle,
+  Star,
+  FileText,
+  FlaskConical,
+  Shield
 } from "lucide-react";
 import { ThemeProvider, useTheme } from "next-themes";
 
@@ -192,9 +197,17 @@ export default function AdminLayout({
     {
       title: "Content",
       items: [
-        { name: "Cafe", href: "/admin/cafe", icon: Coffee },
-        { name: "Audio", href: "/admin/audio", icon: Music },
+        { name: "Journal Articles", href: "/admin/articles", icon: FileText },
+        { name: "Ingredients", href: "/admin/ingredients", icon: FlaskConical },
+        { name: "Skin Concerns", href: "/admin/skin-concerns", icon: Shield },
         { name: "Announcements", href: "/admin/announcements", icon: Megaphone },
+      ]
+    },
+    {
+      title: "Support",
+      items: [
+        { name: "FAQ", href: "/admin/faq", icon: MessageCircle },
+        { name: "Reviews", href: "/admin/reviews", icon: Star },
       ]
     },
     {

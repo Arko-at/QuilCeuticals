@@ -94,7 +94,7 @@ export default function ShopClient({ products, collections = [] }: { products: a
       if (currentSort === "New arrivals") {
         // Assuming original order is newest to oldest or vice versa. 
         // For now, just reverse the array as a placeholder for 'newness'.
-        return -1; 
+        return -1;
       }
       return 0; // Recommended / Default
     });
@@ -111,7 +111,7 @@ export default function ShopClient({ products, collections = [] }: { products: a
 
   return (
     <div className="flex flex-col min-h-screen pt-24 md:pt-32 pb-32 md:pb-48 bg-[#fcfcfc] dark:bg-[#0a0a0a] transition-colors duration-1000">
-      
+
       {/* Featured Campaign Slider Section (Hawtlist Style) */}
       <div className="px-4 sm:px-6 lg:px-12 mb-16 md:mb-24 w-full">
         <div className="flex justify-between items-end mb-6">
@@ -123,9 +123,9 @@ export default function ShopClient({ products, collections = [] }: { products: a
               Engineered for profound cellular restoration.
             </p>
           </div>
-          
+
           <div className="hidden lg:flex gap-4">
-            <button 
+            <button
               onClick={() => {
                 const slider = document.getElementById('protocol-slider');
                 if (slider) slider.scrollBy({ left: -400, behavior: 'smooth' });
@@ -133,9 +133,9 @@ export default function ShopClient({ products, collections = [] }: { products: a
               className="w-10 h-10 rounded-full border border-stone-200 dark:border-stone-800 flex items-center justify-center text-stone-500 hover:text-stone-900 dark:hover:text-white hover:border-stone-900 dark:hover:border-white transition-all"
               aria-label="Scroll left"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
             </button>
-            <button 
+            <button
               onClick={() => {
                 const slider = document.getElementById('protocol-slider');
                 if (slider) slider.scrollBy({ left: 400, behavior: 'smooth' });
@@ -143,16 +143,16 @@ export default function ShopClient({ products, collections = [] }: { products: a
               className="w-10 h-10 rounded-full border border-stone-200 dark:border-stone-800 flex items-center justify-center text-stone-500 hover:text-stone-900 dark:hover:text-white hover:border-stone-900 dark:hover:border-white transition-all"
               aria-label="Scroll right"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
             </button>
           </div>
         </div>
-        
+
         <div className="flex flex-col lg:flex-row gap-4 h-auto lg:h-[600px]">
           {/* Left Campaign Banner */}
           <div className="relative w-full lg:w-[35%] h-[400px] lg:h-full flex-shrink-0 group overflow-hidden bg-stone-900">
             <Image
-              src="/shop_campaign.png"
+              src="/bodylotion-model.png"
               alt="Campaign"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -161,14 +161,14 @@ export default function ShopClient({ products, collections = [] }: { products: a
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             <div className="absolute bottom-8 left-8 right-8 flex flex-col gap-4">
               <h3 className="text-white font-sans font-bold text-2xl uppercase tracking-wider leading-tight">
-                Cellular <br/> Optimization
+                Cellular <br /> Optimization
               </h3>
               <p className="text-white/80 font-sans text-xs max-w-[250px] leading-relaxed">
                 Discover the clinical formulations transforming the standard of luxury skincare.
               </p>
               <Link href="/shop/quilceuticals-luminary-cream">
-                <button className="bg-white text-black font-bold uppercase tracking-widest text-[10px] py-4 px-8 mt-2 hover:bg-stone-200 transition-colors w-max">
-                  Discover Now
+                <button className="btn-animated mt-2 w-max">
+                  <span>Discover Now</span>
                 </button>
               </Link>
             </div>
@@ -188,161 +188,161 @@ export default function ShopClient({ products, collections = [] }: { products: a
       <div className="px-4 sm:px-6 lg:px-12 flex flex-col flex-1">
         {/* ALD Style Top Header Bar */}
         <div className="w-full flex justify-between items-center pb-8 border-b border-stone-200 dark:border-stone-800 text-[10px] md:text-[11px] uppercase tracking-[0.05em]">
-        
-        {/* Left Side: Toggles & Menu */}
-        <div className="flex items-center gap-6">
-          {/* Desktop Sidebar Toggle */}
-          <button 
-            onClick={() => setDesktopSidebarOpen(!desktopSidebarOpen)}
-            className="font-medium text-stone-900 dark:text-stone-100 hidden md:flex items-center gap-2 hover:opacity-50 transition-opacity"
-          >
-            {activeCategory === "All" ? (
-              <span>Shop All</span>
-            ) : (
-              <>
-                <span className="text-stone-400">Shop All</span>
-                <span className="text-stone-300 dark:text-stone-700 mx-1">›</span>
-                <span>{collections.find(c => c.id === activeCategory)?.name || activeCategory}</span>
-              </>
-            )}
-            <Plus size={10} className={clsx("transition-transform duration-300 ml-1", desktopSidebarOpen ? "rotate-45" : "")} />
-          </button>
-          
-          {/* Mobile Filter Toggle / Current Category */}
-          <button 
-            onClick={() => setMobileFilterOpen(!mobileFilterOpen)}
-            className="font-medium text-stone-900 dark:text-stone-100 md:hidden flex items-center gap-2"
-          >
-            {activeCategory === "All" ? (
-              <span>Shop All</span>
-            ) : (
-              <>
-                <span className="text-stone-400">Shop All</span>
-                <span className="text-stone-300 dark:text-stone-700 mx-1">›</span>
-                <span>{collections.find(c => c.id === activeCategory)?.name || activeCategory}</span>
-              </>
-            )}
-            <Plus size={10} className={clsx("transition-transform duration-300 ml-1", mobileFilterOpen ? "rotate-45" : "")} />
-          </button>
 
-          {/* Grid & Theme Toggles (Beside Shop All) */}
-          <div className="flex items-center gap-3">
-            <button 
-              onClick={() => setViewMode(viewMode === "grid" ? "single" : "grid")}
-              className="hover:text-stone-900 dark:text-white transition-colors text-stone-500 dark:text-stone-400"
-              aria-label="Toggle Grid View"
+          {/* Left Side: Toggles & Menu */}
+          <div className="flex items-center gap-6">
+            {/* Desktop Sidebar Toggle */}
+            <button
+              onClick={() => setDesktopSidebarOpen(!desktopSidebarOpen)}
+              className="font-medium text-stone-900 dark:text-stone-100 hidden md:flex items-center gap-2 hover:opacity-50 transition-opacity"
             >
-              {viewMode === "grid" ? <SquareSquare size={14} strokeWidth={1.5} /> : <LayoutGrid size={14} strokeWidth={1.5} />}
+              {activeCategory === "All" ? (
+                <span>Shop All</span>
+              ) : (
+                <>
+                  <span className="text-stone-400">Shop All</span>
+                  <span className="text-stone-300 dark:text-stone-700 mx-1">›</span>
+                  <span>{collections.find(c => c.id === activeCategory)?.name || activeCategory}</span>
+                </>
+              )}
+              <Plus size={10} className={clsx("transition-transform duration-300 ml-1", desktopSidebarOpen ? "rotate-45" : "")} />
             </button>
-            
-            {mounted && (
-              <button 
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="hover:text-stone-900 dark:text-white transition-colors ml-2 text-stone-500 dark:text-stone-400"
-                aria-label="Toggle Theme"
+
+            {/* Mobile Filter Toggle / Current Category */}
+            <button
+              onClick={() => setMobileFilterOpen(!mobileFilterOpen)}
+              className="font-medium text-stone-900 dark:text-stone-100 md:hidden flex items-center gap-2"
+            >
+              {activeCategory === "All" ? (
+                <span>Shop All</span>
+              ) : (
+                <>
+                  <span className="text-stone-400">Shop All</span>
+                  <span className="text-stone-300 dark:text-stone-700 mx-1">›</span>
+                  <span>{collections.find(c => c.id === activeCategory)?.name || activeCategory}</span>
+                </>
+              )}
+              <Plus size={10} className={clsx("transition-transform duration-300 ml-1", mobileFilterOpen ? "rotate-45" : "")} />
+            </button>
+
+            {/* Grid & Theme Toggles (Beside Shop All) */}
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => setViewMode(viewMode === "grid" ? "single" : "grid")}
+                className="hover:text-stone-900 dark:text-white transition-colors text-stone-500 dark:text-stone-400"
+                aria-label="Toggle Grid View"
               >
-                {theme === "dark" ? <Sun size={14} strokeWidth={1.5} /> : <Moon size={14} strokeWidth={1.5} />}
+                {viewMode === "grid" ? <SquareSquare size={14} strokeWidth={1.5} /> : <LayoutGrid size={14} strokeWidth={1.5} />}
               </button>
-            )}
+
+              {mounted && (
+                <button
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  className="hover:text-stone-900 dark:text-white transition-colors ml-2 text-stone-500 dark:text-stone-400"
+                  aria-label="Toggle Theme"
+                >
+                  {theme === "dark" ? <Sun size={14} strokeWidth={1.5} /> : <Moon size={14} strokeWidth={1.5} />}
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Right Side: Sorting */}
+          <div className="flex items-center gap-6 text-stone-500 dark:text-stone-400 font-medium">
+            <button
+              onClick={() => setIsSortOpen(!isSortOpen)}
+              className="hover:text-stone-900 dark:hover:text-white transition-colors flex items-center gap-2"
+            >
+              Sort: <span className="text-stone-900 dark:text-white">{currentSort}</span>
+              <Plus size={10} className={clsx("transition-transform duration-300", isSortOpen ? "rotate-45" : "")} />
+            </button>
           </div>
         </div>
 
-        {/* Right Side: Sorting */}
-        <div className="flex items-center gap-6 text-stone-500 dark:text-stone-400 font-medium">
-          <button 
-            onClick={() => setIsSortOpen(!isSortOpen)}
-            className="hover:text-stone-900 dark:hover:text-white transition-colors flex items-center gap-2"
-          >
-            Sort: <span className="text-stone-900 dark:text-white">{currentSort}</span>
-            <Plus size={10} className={clsx("transition-transform duration-300", isSortOpen ? "rotate-45" : "")} />
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Accordion Drawer */}
-      <AnimatePresence>
-        {mobileFilterOpen && (
-          <motion.div 
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden border-b border-stone-200 dark:border-stone-800"
-          >
-            <div className="py-8 flex flex-col gap-8">
-              <div className="flex flex-col gap-4">
-                <h3 className="text-[10px] uppercase tracking-[0.2em] font-bold text-stone-400 dark:text-stone-500">Discover</h3>
-                <ul className="flex flex-col gap-4">
-                  {DISCOVER_LINKS.map(link => (
-                    <li key={link.name}>
-                      <button 
-                        onClick={() => handleCategoryClick(link.value, link.href)}
-                        className={clsx(
-                          "text-xs font-medium tracking-wide transition-colors duration-300 text-left w-full",
-                          activeCategory === link.value ? "text-stone-900 dark:text-white" : "text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white"
-                        )}
-                      >
-                        {link.name}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <h3 className="text-[10px] uppercase tracking-[0.2em] font-bold text-stone-400 dark:text-stone-500">Shop By Collection</h3>
-                <ul className="flex flex-col gap-4">
-                  {categoryLinks.map(link => (
-                    <li key={link.name}>
-                      <button 
-                        onClick={() => handleCategoryClick(link.value)}
-                        className={clsx(
-                          "text-xs font-medium tracking-wide transition-colors duration-300 text-left w-full",
-                          activeCategory === link.value ? "text-stone-900 dark:text-white" : "text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white"
-                        )}
-                      >
-                        {link.name}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Main Content Layout */}
-      <div className="relative mt-0 pt-8 flex">
-        
-        {/* Desktop Sidebar & Overlay */}
+        {/* Mobile Accordion Drawer */}
         <AnimatePresence>
-          {desktopSidebarOpen && (
-            <>
-              {/* Overlay over the grid */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="hidden md:block absolute inset-0 bg-stone-900/10 dark:bg-black/20 backdrop-blur-[1px] z-30"
-                style={{ height: '1000%' }}
-                onClick={() => setDesktopSidebarOpen(false)}
-              />
+          {mobileFilterOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="md:hidden overflow-hidden border-b border-stone-200 dark:border-stone-800"
+            >
+              <div className="py-8 flex flex-col gap-8">
+                <div className="flex flex-col gap-4">
+                  <h3 className="text-[10px] uppercase tracking-[0.2em] font-bold text-stone-400 dark:text-stone-500">Discover</h3>
+                  <ul className="flex flex-col gap-4">
+                    {DISCOVER_LINKS.map(link => (
+                      <li key={link.name}>
+                        <button
+                          onClick={() => handleCategoryClick(link.value, link.href)}
+                          className={clsx(
+                            "text-xs font-medium tracking-wide transition-colors duration-300 text-left w-full",
+                            activeCategory === link.value ? "text-stone-900 dark:text-white" : "text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white"
+                          )}
+                        >
+                          {link.name}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-              {/* Sidebar Content */}
-              <motion.div 
-                initial={{ x: "-100%", opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: "-100%", opacity: 0 }}
-                transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
-                className="hidden md:flex flex-col absolute top-0 left-0 w-64 lg:w-72 bg-[#fcfcfc] dark:bg-[#0a0a0a] z-40 gap-12 pt-8 pb-32 border-r border-stone-100 dark:border-stone-900 pr-8 min-h-screen"
-              >
-                 <div className="flex flex-col gap-5">
+                <div className="flex flex-col gap-4">
+                  <h3 className="text-[10px] uppercase tracking-[0.2em] font-bold text-stone-400 dark:text-stone-500">Shop By Collection</h3>
+                  <ul className="flex flex-col gap-4">
+                    {categoryLinks.map(link => (
+                      <li key={link.name}>
+                        <button
+                          onClick={() => handleCategoryClick(link.value)}
+                          className={clsx(
+                            "text-xs font-medium tracking-wide transition-colors duration-300 text-left w-full",
+                            activeCategory === link.value ? "text-stone-900 dark:text-white" : "text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white"
+                          )}
+                        >
+                          {link.name}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Main Content Layout */}
+        <div className="relative mt-0 pt-8 flex">
+
+          {/* Desktop Sidebar & Overlay */}
+          <AnimatePresence>
+            {desktopSidebarOpen && (
+              <>
+                {/* Overlay over the grid */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  className="hidden md:block absolute inset-0 bg-stone-900/10 dark:bg-black/20 backdrop-blur-[1px] z-30"
+                  style={{ height: '1000%' }}
+                  onClick={() => setDesktopSidebarOpen(false)}
+                />
+
+                {/* Sidebar Content */}
+                <motion.div
+                  initial={{ x: "-100%", opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: "-100%", opacity: 0 }}
+                  transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
+                  className="hidden md:flex flex-col absolute top-0 left-0 w-64 lg:w-72 bg-[#fcfcfc] dark:bg-[#0a0a0a] z-40 gap-12 pt-8 pb-32 border-r border-stone-100 dark:border-stone-900 pr-8 min-h-screen"
+                >
+                  <div className="flex flex-col gap-5">
                     <h3 className="text-[10px] uppercase tracking-[0.2em] font-bold text-stone-900 dark:text-stone-100">Discover</h3>
                     <ul className="flex flex-col gap-3.5">
                       {DISCOVER_LINKS.map(link => (
                         <li key={link.name}>
-                          <button 
+                          <button
                             onClick={() => handleCategoryClick(link.value, link.href)}
                             className={clsx(
                               "text-[11px] font-medium tracking-wide transition-colors duration-300 text-left",
@@ -354,14 +354,14 @@ export default function ShopClient({ products, collections = [] }: { products: a
                         </li>
                       ))}
                     </ul>
-                 </div>
+                  </div>
 
-                 <div className="flex flex-col gap-5">
+                  <div className="flex flex-col gap-5">
                     <h3 className="text-[10px] uppercase tracking-[0.2em] font-bold text-stone-900 dark:text-stone-100">Shop By Collection</h3>
                     <ul className="flex flex-col gap-3.5">
                       {categoryLinks.map(link => (
                         <li key={link.name}>
-                          <button 
+                          <button
                             onClick={() => handleCategoryClick(link.value)}
                             className={clsx(
                               "text-[11px] font-medium tracking-wide transition-colors duration-300 text-left",
@@ -373,41 +373,41 @@ export default function ShopClient({ products, collections = [] }: { products: a
                         </li>
                       ))}
                     </ul>
-                 </div>
-              </motion.div>
-            </>
-          )}
-        </AnimatePresence>
+                  </div>
+                </motion.div>
+              </>
+            )}
+          </AnimatePresence>
 
-        {/* Right Sort Sidebar & Overlay */}
-        <AnimatePresence>
-          {isSortOpen && (
-            <>
-              {/* Overlay over the grid */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute inset-0 bg-stone-900/10 dark:bg-black/20 backdrop-blur-[1px] z-30"
-                style={{ height: '1000%' }}
-                onClick={() => setIsSortOpen(false)}
-              />
+          {/* Right Sort Sidebar & Overlay */}
+          <AnimatePresence>
+            {isSortOpen && (
+              <>
+                {/* Overlay over the grid */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute inset-0 bg-stone-900/10 dark:bg-black/20 backdrop-blur-[1px] z-30"
+                  style={{ height: '1000%' }}
+                  onClick={() => setIsSortOpen(false)}
+                />
 
-              {/* Slide-in Sort Sidebar */}
-              <motion.div 
-                initial={{ x: "100%", opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: "100%", opacity: 0 }}
-                transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
-                className="flex flex-col absolute top-0 right-0 w-64 lg:w-72 bg-[#fcfcfc] dark:bg-[#0a0a0a] z-40 gap-12 pt-8 pb-32 border-l border-stone-100 dark:border-stone-900 pl-8 min-h-screen"
-              >
-                 <div className="flex flex-col gap-6">
+                {/* Slide-in Sort Sidebar */}
+                <motion.div
+                  initial={{ x: "100%", opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: "100%", opacity: 0 }}
+                  transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
+                  className="flex flex-col absolute top-0 right-0 w-64 lg:w-72 bg-[#fcfcfc] dark:bg-[#0a0a0a] z-40 gap-12 pt-8 pb-32 border-l border-stone-100 dark:border-stone-900 pl-8 min-h-screen"
+                >
+                  <div className="flex flex-col gap-6">
                     <h3 className="text-[10px] uppercase tracking-[0.2em] font-bold text-stone-400 dark:text-stone-500">Sort By</h3>
                     <ul className="flex flex-col gap-4">
                       {["Recommended", "New arrivals", "Price: Low to high", "Price: High to low"].map(option => (
                         <li key={option}>
-                          <button 
+                          <button
                             onClick={() => {
                               setCurrentSort(option);
                               setIsSortOpen(false);
@@ -422,69 +422,69 @@ export default function ShopClient({ products, collections = [] }: { products: a
                         </li>
                       ))}
                     </ul>
-                 </div>
-              </motion.div>
-            </>
-          )}
-        </AnimatePresence>
+                  </div>
+                </motion.div>
+              </>
+            )}
+          </AnimatePresence>
 
-        {/* Product Grid Layout */}
-        <main className="flex-1 w-full relative z-10 pt-0">
-          {activeCategory.toLowerCase() === "collections" ? (
-            <div className="flex flex-col gap-24 lg:gap-32 pb-24">
-              {collections.length > 0 ? collections.map((collection, index) => {
-                const colProducts = products.filter(p => p.collectionId === collection.id);
-                if (colProducts.length === 0) return null;
-                
-                return (
-                  <section key={collection.id}>
-                    <div className={clsx(
-                      "mb-10 text-stone-900 dark:text-white flex justify-between items-end",
-                      index > 0 && "border-t border-stone-200 dark:border-stone-900 pt-16 lg:pt-24"
-                    )}>
-                      <h2 className="text-[13px] md:text-[14px] font-medium tracking-wide">{collection.name}</h2>
-                    </div>
-                    <div className={clsx(
-                      "transition-all duration-1000",
-                      viewMode === "grid" 
-                        ? "grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-2 gap-y-12 sm:gap-x-4 md:gap-x-6 md:gap-y-16"
-                        : "flex flex-col gap-12 md:gap-24 items-center"
-                    )}>
-                      {colProducts.map(product => (
-                        <ProductCard key={product.id} product={product} viewMode={viewMode} addItem={addItem} />
-                      ))}
-                    </div>
-                    <div className="mt-16 text-[10px] uppercase tracking-widest text-stone-500 hover:text-stone-900 dark:hover:text-white transition-colors cursor-pointer w-max">
-                      <Link href={`/shop?category=${collection.id}`} className="border-b border-stone-300 dark:border-stone-700 pb-1">View collection</Link>
-                    </div>
-                  </section>
-                );
-              }) : (
-                <div className="py-32 text-center text-stone-500 text-sm tracking-widest uppercase">
-                  No collections found.
-                </div>
-              )}
-            </div>
-          ) : (
-            <div className={clsx(
-              "transition-all duration-1000",
-              viewMode === "grid" 
-                ? "grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-2 gap-y-12 sm:gap-x-4 md:gap-x-6 md:gap-y-16"
-                : "flex flex-col gap-12 md:gap-24 items-center"
-            )}>
-              {filteredProducts.length === 0 && (
-                <div className="col-span-full py-32 text-center text-stone-500 text-sm tracking-widest uppercase">
-                  No items found in this category.
-                </div>
-              )}
+          {/* Product Grid Layout */}
+          <main className="flex-1 w-full relative z-10 pt-0">
+            {activeCategory.toLowerCase() === "collections" ? (
+              <div className="flex flex-col gap-24 lg:gap-32 pb-24">
+                {collections.length > 0 ? collections.map((collection, index) => {
+                  const colProducts = products.filter(p => p.collectionId === collection.id);
+                  if (colProducts.length === 0) return null;
 
-              {filteredProducts.map(product => (
-                <ProductCard key={product.id} product={product} viewMode={viewMode} addItem={addItem} />
-              ))}
-            </div>
-          )}
-        </main>
-      </div>
+                  return (
+                    <section key={collection.id}>
+                      <div className={clsx(
+                        "mb-10 text-stone-900 dark:text-white flex justify-between items-end",
+                        index > 0 && "border-t border-stone-200 dark:border-stone-900 pt-16 lg:pt-24"
+                      )}>
+                        <h2 className="text-[13px] md:text-[14px] font-medium tracking-wide">{collection.name}</h2>
+                      </div>
+                      <div className={clsx(
+                        "transition-all duration-1000",
+                        viewMode === "grid"
+                          ? "grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-2 gap-y-12 sm:gap-x-4 md:gap-x-6 md:gap-y-16"
+                          : "flex flex-col gap-12 md:gap-24 items-center"
+                      )}>
+                        {colProducts.map(product => (
+                          <ProductCard key={product.id} product={product} viewMode={viewMode} addItem={addItem} />
+                        ))}
+                      </div>
+                      <div className="mt-16 text-[10px] uppercase tracking-widest text-stone-500 hover:text-stone-900 dark:hover:text-white transition-colors cursor-pointer w-max">
+                        <Link href={`/shop?category=${collection.id}`} className="border-b border-stone-300 dark:border-stone-700 pb-1">View collection</Link>
+                      </div>
+                    </section>
+                  );
+                }) : (
+                  <div className="py-32 text-center text-stone-500 text-sm tracking-widest uppercase">
+                    No collections found.
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className={clsx(
+                "transition-all duration-1000",
+                viewMode === "grid"
+                  ? "grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-2 gap-y-12 sm:gap-x-4 md:gap-x-6 md:gap-y-16"
+                  : "flex flex-col gap-12 md:gap-24 items-center"
+              )}>
+                {filteredProducts.length === 0 && (
+                  <div className="col-span-full py-32 text-center text-stone-500 text-sm tracking-widest uppercase">
+                    No items found in this category.
+                  </div>
+                )}
+
+                {filteredProducts.map(product => (
+                  <ProductCard key={product.id} product={product} viewMode={viewMode} addItem={addItem} />
+                ))}
+              </div>
+            )}
+          </main>
+        </div>
       </div>
     </div>
   );
@@ -494,7 +494,7 @@ function QuickAddTrigger({ product, addItem }: { product: any; addItem: any }) {
 
   return (
     <>
-      <button 
+      <button
         onClick={(e) => {
           e.preventDefault();
           e.stopPropagation();
@@ -520,7 +520,7 @@ function QuickAddTrigger({ product, addItem }: { product: any; addItem: any }) {
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
@@ -528,7 +528,7 @@ function QuickAddTrigger({ product, addItem }: { product: any; addItem: any }) {
           >
             <div className="flex justify-between items-center">
               <span className="text-[9px] uppercase tracking-[0.2em] font-semibold text-stone-400">Select Size</span>
-              <button 
+              <button
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -539,7 +539,7 @@ function QuickAddTrigger({ product, addItem }: { product: any; addItem: any }) {
                 <X size={12} strokeWidth={1} />
               </button>
             </div>
-            
+
             <div className="flex flex-wrap gap-1 sm:gap-2">
               {product.sizes ? product.sizes.map((size: string) => (
                 <button
@@ -549,7 +549,7 @@ function QuickAddTrigger({ product, addItem }: { product: any; addItem: any }) {
                     e.stopPropagation();
                     let currentPrice = product.price;
                     if (product.variants) {
-                      const matchedVariant = product.variants.find((v: any) => 
+                      const matchedVariant = product.variants.find((v: any) =>
                         (v.size + (v.color ? ` - ${v.color}` : '')) === size
                       );
                       if (matchedVariant && matchedVariant.price && String(matchedVariant.price).trim() !== "") {
@@ -619,14 +619,14 @@ function ProductCard({ product, viewMode, addItem }: { product: any; viewMode: "
               src={product.image}
               alt={product.name}
               fill
-              className="object-cover transition-opacity duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:opacity-0"
+              className="object-contain p-4 transition-opacity duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:opacity-0"
               sizes="(max-width: 768px) 50vw, 33vw"
             />
             <Image
               src={product.hoverImage || product.image}
               alt={`${product.name} alternate view`}
               fill
-              className="object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.05]"
+              className="object-contain p-4 absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.05]"
               sizes="(max-width: 768px) 50vw, 33vw"
             />
           </div>
@@ -635,7 +635,7 @@ function ProductCard({ product, viewMode, addItem }: { product: any; viewMode: "
         {/* Quick Add Trigger */}
         <QuickAddTrigger product={product} addItem={addItem} />
       </div>
-      
+
       {/* Product Meta */}
       <div className="flex flex-col sm:flex-row justify-between items-start gap-1 sm:gap-4 text-[10px] sm:text-[11px] uppercase tracking-widest font-medium">
         <Link href={`/shop/${product.id}`} className="text-stone-900 dark:text-stone-100 transition-colors duration-500 ease-in-out hover:text-stone-400 line-clamp-1">

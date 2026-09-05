@@ -176,10 +176,10 @@ export default function SkinJourneyPage() {
         </div>
         <div className="text-center max-w-2xl">
           <h2 className="font-serif font-light text-3xl md:text-5xl text-[#1C1C1C] dark:text-[#F8F7F5] mb-6">
-            The Alchemy of <span className="italic text-stone-500">Perfection.</span>
+            Italian <span className="italic text-stone-500">Craftsmanship.</span>
           </h2>
           <p className="font-sans font-light text-stone-600 dark:text-stone-400 leading-relaxed text-sm md:text-base">
-            Every drop is a testament to uncompromising quality. We source the rarest extremolytes and synthesize them in state-of-the-art facilities to ensure maximum purity and efficacy.
+            Every drop is a testament to uncompromising quality. We combine natural-origin science with Italian craftsmanship to ensure every formulation perfectly respects and supports your innate barrier architecture.
           </p>
         </div>
       </div>

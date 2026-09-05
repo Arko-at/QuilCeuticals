@@ -10,7 +10,8 @@ const trialData = [
   {
     id: 1,
     productName: "The Face Cream",
-    image: "/Quil-faceCream/Quil-faceCream.jpg",
+    image: "/QUILCEUTICALS-PRODUCT-IMAGES/Face-cream-jar.jpeg",
+    video: "/face-cream-trails-vdo.mp4",
     stats: [
       { percentage: "98%", text: "agree skin feels firmer, more resilient, and visibly plumped" },
       { percentage: "95%", text: "agree redness and irritation are visibly calmed" },
@@ -21,7 +22,7 @@ const trialData = [
   {
     id: 2,
     productName: "The Body Lotion",
-    image: "/Quil-lotion/Quil-lotion.jpg",
+    image: "/QUILCEUTICALS-PRODUCT-IMAGES/BODY-LOTION.png",
     stats: [
       { percentage: "99%", text: "agree skin feels instantly hydrated with a healthy, radiant glow" },
       { percentage: "96%", text: "agree deep hydration is maintained throughout the day" },
@@ -31,14 +32,14 @@ const trialData = [
   },
   {
     id: 3,
-    productName: "The Body Wash",
-    image: "/regimen_architecture.png",
+    productName: "The Cleanser",
+    image: "/QUILCEUTICALS-PRODUCT-IMAGES/BODY-CLEANER.jpeg",
     stats: [
       { percentage: "100%", text: "agree skin feels perfectly cleansed without feeling stripped" },
       { percentage: "98%", text: "agree skin feels softer and more receptive to hydration" },
       { percentage: "95%", text: "agree overall skin health and vitality is visibly restored" }
     ],
-    link: "/shop/the-body-wash"
+    link: "/shop/the-cleanser"
   }
 ];
 
@@ -106,15 +107,26 @@ export default function ClinicalTrials() {
             </div>
 
             {/* Center Image (Uncropped) */}
-            <div className="w-full lg:w-2/4 relative h-[300px] md:h-[500px] lg:h-[600px] flex items-center justify-center order-1 lg:order-2">
-              <Image 
-                src={trialData[currentIndex].image}
-                alt={trialData[currentIndex].productName}
-                fill
-                className="object-contain p-4 md:p-8"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-              />
+            <div className="w-full lg:w-2/4 relative h-[300px] md:h-[500px] lg:h-[600px] flex items-center justify-center order-1 lg:order-2 overflow-hidden rounded-lg">
+              {trialData[currentIndex].video ? (
+                <video
+                  src={trialData[currentIndex].video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover shadow-2xl"
+                />
+              ) : (
+                <Image 
+                  src={trialData[currentIndex].image}
+                  alt={trialData[currentIndex].productName}
+                  fill
+                  className="object-contain p-4 md:p-8"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+              )}
             </div>
 
             {/* Right Stat (Stat 2 + Actions) */}
@@ -129,8 +141,8 @@ export default function ClinicalTrials() {
               </div>
               
               <div className="flex flex-col items-center lg:items-start gap-6 mt-4 lg:mt-0">
-                <Link href={trialData[currentIndex].link} className="bg-[#D1A68D] hover:bg-[#C19880] text-white font-sans text-[10px] font-bold uppercase tracking-[0.2em] py-4 px-10 text-center transition-colors rounded-sm w-full md:w-auto">
-                  View Full Study
+                <Link href={trialData[currentIndex].link} className="btn-animated w-full md:w-auto">
+                  <span>Explore Formulation</span>
                 </Link>
                 <Link href={trialData[currentIndex].link} className="font-sans text-[9px] uppercase tracking-[0.2em] text-[#1C1C1C] dark:text-[#F8F7F5] border-b border-[#1C1C1C] dark:border-stone-500 pb-1 hover:opacity-60 transition-opacity">
                   Discover Product

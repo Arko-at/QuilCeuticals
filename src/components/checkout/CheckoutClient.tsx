@@ -749,9 +749,9 @@ function CheckoutForm({ clientSecret, isCafeMode }: { clientSecret: string, isCa
             <button
               type="submit"
               disabled={isProcessing || (!isCafeMode && (!stripe || !elements))}
-              className="w-full h-[60px] flex items-center justify-center bg-stone-900 dark:bg-white text-white dark:text-stone-900 text-[15px] font-bold rounded-[4px] hover:opacity-90 transition-all shadow-md mt-4 mb-24 disabled:opacity-70"
+              className="btn-animated w-full h-[60px]"
             >
-              {isProcessing ? <Loader2 className="animate-spin" /> : (isCafeMode ? "I have paid" : "Pay now")}
+              <span>{isProcessing ? <Loader2 className="animate-spin" /> : (isCafeMode ? "I have paid" : "Pay now")}</span>
             </button>
           </form>
         </div>

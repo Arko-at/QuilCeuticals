@@ -63,8 +63,9 @@ export default function Footer() {
           <div className="flex flex-col gap-6">
             <h3 className="font-sans text-[10px] uppercase tracking-[0.3em] font-bold text-stone-500 mb-2">Shop</h3>
             <Link href="/shop" className="font-sans font-light text-sm text-stone-300 hover:text-white transition-colors">All Products</Link>
-            <Link href="/shop/the-catalyst-serum" className="font-sans font-light text-sm text-stone-300 hover:text-white transition-colors">The Catalyst Serum</Link>
-            <Link href="/shop/luminous-pearl-cream" className="font-sans font-light text-sm text-stone-300 hover:text-white transition-colors">Luminous Pearl Cream</Link>
+            <Link href="/shop/the-face-cream" className="font-sans font-light text-sm text-stone-300 hover:text-white transition-colors">Face Cream</Link>
+            <Link href="/shop/the-body-lotion" className="font-sans font-light text-sm text-stone-300 hover:text-white transition-colors">Body Lotion</Link>
+            <Link href="/shop/the-cleanser" className="font-sans font-light text-sm text-stone-300 hover:text-white transition-colors">Cleanser</Link>
           </div>
           <div className="flex flex-col gap-6">
             <h3 className="font-sans text-[10px] uppercase tracking-[0.3em] font-bold text-stone-500 mb-2">Discover</h3>
