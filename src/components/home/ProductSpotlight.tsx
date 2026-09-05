@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-export default function ProductSpotlight() {
+export default function ProductSpotlight({ products = [] }: { products?: any[] }) {
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -16,6 +16,10 @@ export default function ProductSpotlight() {
   const y1 = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
   const y2 = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
   const y3 = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+
+  const faceCreamPrice = products.find((p) => p.slug === "the-face-cream")?.price || 114;
+  const bodyLotionPrice = products.find((p) => p.slug === "the-body-lotion")?.price || 65;
+  const cleanserPrice = products.find((p) => p.slug === "the-cleanser")?.price || 50;
 
   return (
     <section ref={containerRef} className="relative w-full py-32 px-6 lg:px-24 bg-[#F8F7F5] dark:bg-[#1C1C1C] transition-colors duration-700 overflow-hidden">
@@ -86,7 +90,7 @@ export default function ProductSpotlight() {
               A sophisticated daily face cream that supports the skin rather than overwhelming it. Featuring targeted 4% Niacinamide, Ectoin, and Ceramides to deeply hydrate, protect the barrier, and provide a healthy luminous appearance without relying on unnecessary viral trends. Just Your Skin™️.
             </p>
             <div className="flex items-center gap-8">
-              <span className="font-sans text-lg font-medium text-[#1C1C1C] dark:text-[#F8F7F5]">$114</span>
+              <span className="font-sans text-lg font-medium text-[#1C1C1C] dark:text-[#F8F7F5]">${faceCreamPrice}</span>
               <Link href="/shop/the-face-cream" className="font-sans text-[10px] tracking-[0.2em] uppercase font-bold text-[#D1A68D] hover:text-[#C19880] transition-colors border-b border-[#D1A68D] hover:border-[#C19880] pb-1">
                 Discover More
               </Link>
@@ -139,7 +143,7 @@ export default function ProductSpotlight() {
               Your body is skin too. Extend the philosophy of sophisticated skincare into daily body care. This barrier-conscious lotion combines 3% Niacinamide with purposeful actives to moisturize, condition, and support healthy-looking skin beyond mere temporary softness.
             </p>
             <div className="flex items-center gap-8 flex-row-reverse md:flex-row">
-              <span className="font-sans text-lg font-medium text-[#1C1C1C] dark:text-[#F8F7F5]">$65</span>
+              <span className="font-sans text-lg font-medium text-[#1C1C1C] dark:text-[#F8F7F5]">${bodyLotionPrice}</span>
               <Link href="/shop/the-body-lotion" className="font-sans text-[10px] tracking-[0.2em] uppercase font-bold text-[#D1A68D] hover:text-[#C19880] transition-colors border-b border-[#D1A68D] hover:border-[#C19880] pb-1">
                 Discover More
               </Link>
@@ -191,7 +195,7 @@ export default function ProductSpotlight() {
               Cleanse your skin. Don't fight it. A premium cleansing experience that removes what the skin doesn't need without treating the skin itself as the problem. Effective, purposeful cleansing that respects the barrier and perfectly prepares your canvas for the steps that follow.
             </p>
             <div className="flex items-center gap-8">
-              <span className="font-sans text-lg font-medium text-[#1C1C1C] dark:text-[#F8F7F5]">$50</span>
+              <span className="font-sans text-lg font-medium text-[#1C1C1C] dark:text-[#F8F7F5]">${cleanserPrice}</span>
               <Link href="/shop/the-cleanser" className="font-sans text-[10px] tracking-[0.2em] uppercase font-bold text-[#D1A68D] hover:text-[#C19880] transition-colors border-b border-[#D1A68D] hover:border-[#C19880] pb-1">
                 Discover More
               </Link>
