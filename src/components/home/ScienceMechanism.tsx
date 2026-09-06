@@ -154,10 +154,6 @@ export default function ScienceMechanism() {
           </motion.div>
         </div>
 
-        </div>
-
-        </div>
-
         <div className="flex justify-center relative z-10">
           <Link href="/science" className="btn-animated">
             <span>Explore The Science</span>
