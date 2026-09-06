@@ -95,8 +95,7 @@ export default function ScienceMechanism() {
           >
             Our proven results are powered by Quilbiotics™ – a proprietary blend of high-grade extremolytes, cellular reconstructing lipids, and high-performing peptides – backed by exhaustive research, innovation, and clinical study.
           </motion.p>
-                {/* Compact 3-Column Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full mb-12 h-auto md:h-[350px] items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 w-full mb-12 h-auto lg:h-[350px] items-center">
           
           {/* Step 1 */}
           <motion.div
@@ -120,9 +119,9 @@ export default function ScienceMechanism() {
             <span className="font-serif text-6xl font-light text-white/5 absolute -top-4 -right-2 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110">
               2
             </span>
-            <h3 className="font-sans text-xl font-medium text-[#F8F7F5] mb-4 relative z-10">Adaptive Reconstruction</h3>
+            <h3 className="font-sans text-xl font-medium text-[#F8F7F5] mb-4 relative z-10">Targeted Delivery</h3>
             <p className="font-sans font-light text-sm text-stone-400 leading-relaxed relative z-10">
-              <span className="font-medium text-stone-200">Quilbiotics™</span> turns potent base formulations into smarter, adaptive skincare proven to address individualized concerns – repairing environmental damage and locking in absolute hydration.
+              <span className="font-medium text-stone-200">Quilbiotics™</span> ensures active ingredients are delivered precisely where needed, optimizing hydration and supporting the skin's natural healing mechanisms.
             </p>
           </motion.div>
 
@@ -131,14 +130,29 @@ export default function ScienceMechanism() {
             style={{ y: y3 }}
             className="w-full bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-2xl relative overflow-hidden group"
           >
-             <span className="font-serif text-6xl font-light text-white/5 absolute -top-4 -right-2 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110">
+            <span className="font-serif text-6xl font-light text-white/5 absolute -top-4 -right-2 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110">
               3
+            </span>
+            <h3 className="font-sans text-xl font-medium text-[#F8F7F5] mb-4 relative z-10">Adaptive Reconstruction</h3>
+            <p className="font-sans font-light text-sm text-stone-400 leading-relaxed relative z-10">
+              <span className="font-medium text-stone-200">Quilbiotics™</span> turns potent base formulations into smarter, adaptive skincare proven to address individualized concerns – repairing environmental damage and locking in absolute hydration.
+            </p>
+          </motion.div>
+
+          {/* Step 4 */}
+          <motion.div
+            style={{ y: y1 }}
+            className="w-full bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-2xl relative overflow-hidden group"
+          >
+             <span className="font-serif text-6xl font-light text-white/5 absolute -top-4 -right-2 pointer-events-none select-none transition-transform duration-500 group-hover:scale-110">
+              4
             </span>
             <h3 className="font-sans text-xl font-medium text-[#F8F7F5] mb-4 relative z-10">Deep-Tissue Vitality</h3>
             <p className="font-sans font-light text-sm text-stone-400 leading-relaxed relative z-10">
               <span className="font-medium text-stone-200">Quilbiotics™</span> supports the skin's overall structural integrity, resulting in a complexion that feels fundamentally healthier, firmer, and reflects genuine luminosity from within.
             </p>
           </motion.div>
+        </div>
 
         </div>
 

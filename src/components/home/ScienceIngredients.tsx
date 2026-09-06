@@ -27,6 +27,14 @@ const ingredients = [
     subtitle: "Gentle Purification",
     description: "Removes what the skin doesn't need without treating the skin itself as the problem. The first step respects every step that follows.",
     image: "/images/pearl_extract.png"
+  },
+  {
+    bgText: "serum",
+    tag: "for the gel serum",
+    title: "LIGHTWEIGHT HYDRATION",
+    subtitle: "Cellular Support",
+    description: "A lightweight gel serum formulated to provide targeted hydration and active delivery without heavy residue. The essential step before your cream.",
+    image: "/images/obsidian_glass.png"
   }
 ];
 
@@ -45,7 +53,7 @@ export default function ScienceIngredients() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8">
           {ingredients.map((item, index) => (
             <motion.div 
               key={index}

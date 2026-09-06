@@ -28,13 +28,13 @@ export default function ProductSpotlight({ products = [] }: { products?: any[] }
         <div>
           <span className="font-sans text-[10px] tracking-[0.4em] uppercase text-[#D1A68D] mb-4 block font-bold">The Regimen</span>
           <h2 className="font-serif font-light text-4xl md:text-5xl lg:text-6xl text-[#1C1C1C] dark:text-[#F8F7F5]">
-            Just Your Skin.
+            Just Your Skin™️.
           </h2>
         </div>
 
         <div className="flex flex-col items-start md:items-end max-w-lg">
           <p className="font-sans font-light text-sm md:text-base text-stone-600 dark:text-stone-400 leading-relaxed mb-6 md:text-right">
-            Meticulously formulated to support your skin's innate barrier architecture. Our foundational 3-step regimen—Cleanser, Face Cream, and Body Lotion—respects the skin rather than overwhelming it.
+            Meticulously formulated to support your skin's innate barrier architecture. Our foundational 4-step regimen—Cleanser, Lightweight Gel Serum, Face Cream, and Body Lotion—respects the skin rather than overwhelming it.
           </p>
           <Link href="/shop" className="group flex items-center gap-3 text-[#1C1C1C] dark:text-[#F8F7F5] hover:opacity-70 transition-opacity whitespace-nowrap border-b border-stone-200 dark:border-stone-700 pb-1">
             <span className="font-sans text-[10px] tracking-[0.2em] uppercase font-bold">Explore The Collection</span>
