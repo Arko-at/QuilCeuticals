@@ -55,7 +55,7 @@ export default function ProductSpotlight({ products = [] }: { products?: any[] }
             className="w-full md:w-5/12"
             style={{ y: y1 }}
           >
-            <Link href="/shop/the-face-cream" className="block w-full relative aspect-[4/5] group">
+            <Link href="/shop/the-face-cream" className="block w-full relative aspect-[4/5] group dark:bg-[#F8F7F5] dark:rounded-2xl overflow-hidden">
               <Image
                 src="/QUILCEUTICALS-PRODUCT-IMAGES/Face-cream-jar.jpeg"
                 alt="QuilCeuticals Face Cream"
@@ -108,7 +108,7 @@ export default function ProductSpotlight({ products = [] }: { products?: any[] }
             className="w-full md:w-4/12"
             style={{ y: y2 }}
           >
-            <Link href="/shop/the-body-lotion" className="block w-full relative aspect-[4/5] group">
+            <Link href="/shop/the-body-lotion" className="block w-full relative aspect-[4/5] group dark:bg-[#F8F7F5] dark:rounded-2xl overflow-hidden">
               <Image
                 src="/QUILCEUTICALS-PRODUCT-IMAGES/BODY-LOTION.png"
                 alt="QuilCeuticals Body Lotion"
@@ -160,7 +160,7 @@ export default function ProductSpotlight({ products = [] }: { products?: any[] }
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="w-full md:w-5/12"
           >
-            <Link href="/shop/the-cleanser" className="block w-full relative aspect-[4/5] group">
+            <Link href="/shop/the-cleanser" className="block w-full relative aspect-[4/5] group dark:bg-[#F8F7F5] dark:rounded-2xl overflow-hidden">
               <Image
                 src="/QUILCEUTICALS-PRODUCT-IMAGES/BODY-CLEANER.jpeg"
                 alt="QuilCeuticals Cleanser"
