@@ -40,7 +40,7 @@ export default async function SciencePage() {
       name: "Bifida Ferment Lysate",
       slug: "bifida-ferment",
       image_url: "/images/microbiome_shield.jpg",
-      clinical_description: "Our microbiome-conscious formulation directly supports QuilCeuticals' broader PRE + POST BIOTIC / Quilbiotics™️ product architecture.",
+      clinical_description: "Our microbiome-conscious formulation directly supports QuilCeuticals' broader PRE + POST BIOTIC / Quilbiotics™ product architecture.",
       benefits: "By feeding beneficial micro-flora and creating an optimized environment for your skin’s invisible first line of defense, we ensure your skin remains balanced, calm, and perfectly supported against daily environmental noise."
     }
   ];

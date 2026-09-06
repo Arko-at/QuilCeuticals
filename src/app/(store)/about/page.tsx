@@ -57,7 +57,7 @@ export default function AboutPage() {
       {/* Content Section */}
       <div className="max-w-4xl mx-auto px-6 lg:px-12 py-32 md:py-48 text-center relative z-10">
         <h2 className="font-serif font-light text-4xl md:text-5xl mb-12 leading-snug">
-          Just Your Skin™️. Skincare should serve your skin—not the algorithm.
+          Just Your Skin™. Skincare should serve your skin—not the algorithm.
         </h2>
         <p className="font-sans font-light text-stone-600 dark:text-stone-400 leading-relaxed text-base md:text-lg tracking-wide max-w-2xl mx-auto mb-6">
           QuilCeuticals is a premium dermocosmetic skincare brand combining Italian craftsmanship, natural-origin science, barrier-conscious care, and purposeful simplicity. We are not built around excessive routines or viral ingredients.

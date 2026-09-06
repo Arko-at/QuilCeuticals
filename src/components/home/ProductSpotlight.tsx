@@ -28,7 +28,7 @@ export default function ProductSpotlight({ products = [] }: { products?: any[] }
         <div>
           <span className="font-sans text-[10px] tracking-[0.4em] uppercase text-[#D1A68D] mb-4 block font-bold">The Regimen</span>
           <h2 className="font-serif font-light text-4xl md:text-5xl lg:text-6xl text-[#1C1C1C] dark:text-[#F8F7F5]">
-            Just Your Skin™️.
+            Just Your Skin™.
           </h2>
         </div>
 
@@ -87,7 +87,7 @@ export default function ProductSpotlight({ products = [] }: { products?: any[] }
               The Face Cream
             </h3>
             <p className="font-sans font-light text-base md:text-lg text-stone-600 dark:text-stone-400 leading-relaxed mb-8 max-w-xl">
-              A sophisticated daily face cream that supports the skin rather than overwhelming it. Featuring targeted 4% Niacinamide, Ectoin, and Ceramides to deeply hydrate, protect the barrier, and provide a healthy luminous appearance without relying on unnecessary viral trends. Just Your Skin™️.
+              A sophisticated daily face cream that supports the skin rather than overwhelming it. Featuring targeted 4% Niacinamide, Ectoin, and Ceramides to deeply hydrate, protect the barrier, and provide a healthy luminous appearance without relying on unnecessary viral trends. Just Your Skin™.
             </p>
             <div className="flex items-center gap-8">
               <span className="font-sans text-lg font-medium text-[#1C1C1C] dark:text-[#F8F7F5]">${faceCreamPrice}</span>
