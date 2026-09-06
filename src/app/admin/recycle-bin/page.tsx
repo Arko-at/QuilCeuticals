@@ -4,14 +4,13 @@ import { useEffect, useState } from "react";
 import { 
   getDeletedProducts, restoreProduct, permanentlyDeleteProduct,
   getDeletedCollections, restoreCollection, permanentlyDeleteCollection,
-  getDeletedAudioTracks, restoreAudioTrack, permanentlyDeleteAudioTrack,
   getDeletedCafeItems, restoreCafeItem, permanentlyDeleteCafeItem,
   getDeletedAnnouncements, restoreAnnouncement, permanentlyDeleteAnnouncement
 } from "../actions";
 import { Loader2, RefreshCw, Trash2, ArrowLeft } from "lucide-react";
 import { ConfirmModal } from "@/components/admin/ConfirmModal";
 
-type Tab = "Products" | "Collections" | "Audio" | "Cafe" | "Announcements";
+type Tab = "Products" | "Collections" | "Cafe" | "Announcements";
 
 export default function RecycleBinPage() {
   const [activeTab, setActiveTab] = useState<Tab>("Products");
@@ -27,7 +26,6 @@ export default function RecycleBinPage() {
     try {
       if (activeTab === "Products") setItems(await getDeletedProducts());
       if (activeTab === "Collections") setItems(await getDeletedCollections());
-      if (activeTab === "Audio") setItems(await getDeletedAudioTracks());
       if (activeTab === "Cafe") setItems(await getDeletedCafeItems());
       if (activeTab === "Announcements") setItems(await getDeletedAnnouncements());
     } catch (err) {
@@ -46,7 +44,6 @@ export default function RecycleBinPage() {
     try {
       if (activeTab === "Products") await restoreProduct(id);
       if (activeTab === "Collections") await restoreCollection(id);
-      if (activeTab === "Audio") await restoreAudioTrack(id);
       if (activeTab === "Cafe") await restoreCafeItem(id);
       if (activeTab === "Announcements") await restoreAnnouncement(id);
       setItems(items.filter(item => item.id !== id));
@@ -65,7 +62,6 @@ export default function RecycleBinPage() {
         try {
           if (activeTab === "Products") await permanentlyDeleteProduct(id);
           if (activeTab === "Collections") await permanentlyDeleteCollection(id);
-          if (activeTab === "Audio") await permanentlyDeleteAudioTrack(id);
           if (activeTab === "Cafe") await permanentlyDeleteCafeItem(id);
           if (activeTab === "Announcements") await permanentlyDeleteAnnouncement(id);
           setItems(items.filter(item => item.id !== id));
@@ -88,7 +84,7 @@ export default function RecycleBinPage() {
 
       <div className="bg-white dark:bg-[#111] border border-stone-200 dark:border-stone-800 rounded-xl overflow-hidden shadow-sm">
         <div className="flex overflow-x-auto items-center gap-1 px-2 pt-2 border-b border-stone-200 dark:border-stone-800 no-scrollbar">
-          {(["Products", "Collections", "Audio", "Cafe", "Announcements"] as Tab[]).map((tab) => (
+          {(["Products", "Collections", "Cafe", "Announcements"] as Tab[]).map((tab) => (
             <button 
               key={tab}
               onClick={() => setActiveTab(tab)}
