@@ -65,6 +65,7 @@ export default function AdminLayout({
   const [hasUnreadNotifications, setHasUnreadNotifications] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const [notifications, setNotifications] = useState<{id: string, message: string, time: string}[]>([]);
+  const [adminEmail, setAdminEmail] = useState("");
 
   useEffect(() => {
     async function checkAuth() {
@@ -93,6 +94,9 @@ export default function AdminLayout({
 
         // Removed strict profile check since not all initialized admin users have a profile row
         setAuthorized(true);
+        if (session?.user?.email) {
+          setAdminEmail(session.user.email);
+        }
         if (pathname === "/admin/login") {
           router.push("/admin/dashboard");
         }
@@ -394,8 +398,11 @@ export default function AdminLayout({
                 </div>
               </div>
             )}
-            <div className="w-7 h-7 rounded-full bg-stone-200 dark:bg-stone-800 flex items-center justify-center text-xs font-bold text-stone-600 dark:text-stone-300 cursor-pointer">
-              FP
+            <div 
+              className="w-7 h-7 rounded-full bg-stone-200 dark:bg-stone-800 flex items-center justify-center text-xs font-bold text-stone-600 dark:text-stone-300 cursor-pointer uppercase"
+              title={adminEmail || "Admin"}
+            >
+              {adminEmail ? adminEmail.charAt(0) : "A"}
             </div>
           </div>
         </header>
