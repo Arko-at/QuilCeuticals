@@ -84,7 +84,7 @@ export default function CartDrawer() {
                         src={item.image}
                         alt={item.name}
                         fill
-                        className="object-cover mix-blend-multiply dark:mix-blend-normal"
+                        className="object-contain p-2 mix-blend-multiply dark:mix-blend-normal"
                       />
                     </div>
                     <div className="flex-1 flex flex-col justify-between py-1 text-sm">

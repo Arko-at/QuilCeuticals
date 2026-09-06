@@ -78,7 +78,7 @@ export default function ProductDetailClient({ productData }: { productData: any 
            <div className="flex overflow-x-auto snap-x snap-mandatory gap-2 pb-2 w-full no-scrollbar scroll-smooth">
               {productData.images.map((img: string, idx: number) => (
                 <div key={idx} className="snap-center shrink-0 w-full aspect-square bg-transparent relative mb-2">
-                  <Image src={img} alt={`${productData.name} - ${idx}`} fill priority={idx === 0} className="object-cover" />
+                  <Image src={img} alt={`${productData.name} - ${idx}`} fill priority={idx === 0} className="object-contain p-4" />
                 </div>
               ))}
            </div>
@@ -120,7 +120,7 @@ export default function ProductDetailClient({ productData }: { productData: any 
                     {productData.relatedProducts.map((relatedProduct: any) => (
                       <Link href={`/${productData.isCafeItem ? 'cafe' : 'shop'}/${relatedProduct.id}`} key={relatedProduct.id} className="snap-start shrink-0 w-[60%] flex flex-col gap-2">
                         <div className="aspect-square bg-transparent relative">
-                           <Image src={relatedProduct.image} alt={relatedProduct.name} fill className="object-cover opacity-90" />
+                           <Image src={relatedProduct.image} alt={relatedProduct.name} fill className="object-contain p-2 opacity-90" />
                         </div>
                         <span className="text-[9px] uppercase tracking-[0.2em] text-stone-900 dark:text-white truncate mt-1">{relatedProduct.name}</span>
                         <span className="text-[9px] text-stone-400 font-medium tracking-widest">{relatedProduct.price}</span>
@@ -275,7 +275,7 @@ export default function ProductDetailClient({ productData }: { productData: any 
                     {productData.relatedProducts.map((relatedProduct: any) => (
                       <Link href={`/${productData.isCafeItem ? 'cafe' : 'shop'}/${relatedProduct.id}`} key={relatedProduct.id} className="flex flex-col gap-2 group cursor-pointer">
                         <div className="aspect-square bg-transparent relative overflow-hidden transition-all duration-700">
-                           <Image src={relatedProduct.image} alt={relatedProduct.name} fill className="object-cover opacity-80 group-hover:opacity-100" />
+                           <Image src={relatedProduct.image} alt={relatedProduct.name} fill className="object-contain p-2 opacity-80 group-hover:opacity-100" />
                         </div>
                         <span className="text-[9px] uppercase tracking-[0.2em] text-stone-900 dark:text-white truncate mt-1 underline decoration-transparent group-hover:decoration-stone-200 transition-all">
                            {relatedProduct.name}
@@ -305,7 +305,7 @@ export default function ProductDetailClient({ productData }: { productData: any 
                     alt={`${productData.name} - ${idx}`}
                     fill
                     priority={idx === 0}
-                    className="object-cover transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
+                    className="object-contain p-8 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </motion.div>
@@ -399,7 +399,7 @@ export default function ProductDetailClient({ productData }: { productData: any 
                 {productData.relatedProducts.map((relatedProduct: any) => (
                   <Link href={`/${productData.isCafeItem ? 'cafe' : 'shop'}/${relatedProduct.id}`} key={relatedProduct.id} className="flex flex-col gap-3 group">
                      <div className="aspect-square bg-transparent relative shadow-sm">
-                        <Image src={relatedProduct.image} alt={relatedProduct.name} fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+                        <Image src={relatedProduct.image} alt={relatedProduct.name} fill className="object-contain p-6 grayscale group-hover:grayscale-0 transition-all duration-700" />
                      </div>
                      <div className="flex justify-between text-[9px] uppercase tracking-widest mt-1 font-bold">
                         <span className="text-stone-900 dark:text-white">{relatedProduct.name}</span>
