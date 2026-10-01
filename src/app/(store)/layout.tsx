@@ -1,7 +1,7 @@
 import SmoothScroller from "@/components/layout/SmoothScroller";
 import Navbar from "@/components/layout/Navbar";
 import CartDrawer from "@/components/cart/CartDrawer";
-import LoadingScreen from "@/components/layout/LoadingScreen";
+
 import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 
@@ -12,7 +12,7 @@ export default function StoreLayout({
 }>) {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem storageKey="quilceuticals-theme">
-      <LoadingScreen />
+
       <SmoothScroller>
         <Navbar />
         <CartDrawer />
