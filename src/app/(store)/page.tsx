@@ -10,7 +10,7 @@ import FAQ from "@/components/home/FAQ";
 
 import { getProducts } from "@/app/admin/actions";
 
-export const dynamic = "force-dynamic";
+
 
 export default async function Home() {
   let products = [];

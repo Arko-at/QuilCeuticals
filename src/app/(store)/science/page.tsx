@@ -1,7 +1,7 @@
 import { getIngredients, getSkinConcerns } from "@/app/admin/actions";
 import ScienceClient from "@/components/science/ScienceClient";
 
-export const dynamic = "force-dynamic";
+
 
 export default async function SciencePage() {
   let dbIngredients = [];

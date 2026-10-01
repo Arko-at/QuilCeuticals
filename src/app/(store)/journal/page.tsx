@@ -2,7 +2,7 @@ import { getArticles } from "@/app/admin/actions";
 import JournalClient from "@/components/journal/JournalClient";
 
 // Opt out of static rendering so the journal updates when CMS changes
-export const dynamic = "force-dynamic";
+
 
 export default async function JournalPage() {
   // Try fetching from DB, fallback to empty array if fails

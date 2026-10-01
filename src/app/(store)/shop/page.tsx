@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import { getProducts, getCollections } from "@/app/admin/actions";
 
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+
 
 export const metadata: Metadata = {
   title: 'Shop Premium Essentials',
