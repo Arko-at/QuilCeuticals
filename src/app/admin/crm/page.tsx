@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getCrmSessions, updateCrmSession } from "../actions";
+import { getCrmSessions, updateCrmSession, sendCartRecoveryEmail } from "../actions";
 import { 
   Loader2,
   Mail,
@@ -92,11 +92,23 @@ export default function AdminCRMPage() {
     fetchSessions();
   }, []);
 
-  const triggerReminder = (id: string, method: "whatsapp" | "email", contact: string) => {
+  const triggerReminder = async (id: string, method: "whatsapp" | "email", contact: string, items: CartItem[]) => {
     setRemindedCarts([...remindedCarts, `${id}-${method}`]);
     
-    // In production, this calls a Next.js API route that connects to Twilio (WhatsApp) or Resend (Email)
-    alert(`Reminder dispatched successfully to ${contact} via ${method.toUpperCase()}`);
+    if (method === "email") {
+      try {
+        const res = await sendCartRecoveryEmail(contact, items);
+        if (res.success) {
+          alert(`Recovery email sent successfully to ${contact}`);
+        } else {
+          alert(`Failed to send email: ${res.error}`);
+        }
+      } catch (err: any) {
+        alert(`Error sending email: ${err.message}`);
+      }
+    } else {
+      alert(`WhatsApp reminder dispatched successfully to ${contact}`);
+    }
   };
 
   const getCartTotal = (items: CartItem[]) => {
@@ -210,7 +222,7 @@ export default function AdminCRMPage() {
                   <div className="flex gap-2 w-full xl:w-auto">
                     {session.email && (
                       <button
-                        onClick={() => triggerReminder(session.id, "email", session.email!)}
+                        onClick={() => triggerReminder(session.id, "email", session.email!, session.items)}
                         disabled={remindedCarts.includes(`${session.id}-email`)}
                         className={`flex-1 xl:flex-none flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border
                           ${remindedCarts.includes(`${session.id}-email`)
@@ -226,7 +238,7 @@ export default function AdminCRMPage() {
 
                     {session.whatsapp_number && (
                       <button
-                        onClick={() => triggerReminder(session.id, "whatsapp", session.whatsapp_number!)}
+                        onClick={() => triggerReminder(session.id, "whatsapp", session.whatsapp_number!, session.items)}
                         disabled={remindedCarts.includes(`${session.id}-whatsapp`)}
                         className={`flex-1 xl:flex-none flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border
                           ${remindedCarts.includes(`${session.id}-whatsapp`)

@@ -229,6 +229,17 @@ export async function updateCrmSession(id: string, dataObj: any) {
   if (error) throw error;
   return data;
 }
+import { sendEmail } from "@/lib/email";
+import { CartRecovery } from "@/components/emails/CartRecovery";
+
+export async function sendCartRecoveryEmail(email: string, items: any[]) {
+  const result = await sendEmail({
+    to: email,
+    subject: "Complete your QuilCeuticals purchase",
+    react: CartRecovery({ items }) as any,
+  });
+  return result;
+}
 
 // NEWSLETTER / SUBSCRIBERS
 export async function subscribeNewsletter(email: string, whatsapp_number?: string, snapchat?: string) {

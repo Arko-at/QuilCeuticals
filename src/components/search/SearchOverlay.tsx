@@ -5,8 +5,7 @@ import { X, Search as SearchIcon, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import shopifyData from "@/data/products.json";
-
+import { getProducts } from "@/app/admin/actions";
 interface SearchOverlayProps {
   isOpen: boolean;
   onClose: () => void;
@@ -16,10 +15,18 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const [dbProducts, setDbProducts] = useState<any[]>([]);
+
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => inputRef.current?.focus(), 100);
       document.body.style.overflow = "hidden";
+      
+      // Fetch live products
+      getProducts().then((data) => {
+        if (data) setDbProducts(data);
+      }).catch(err => console.error("Search fetch error:", err));
+      
     } else {
       document.body.style.overflow = "auto";
     }
@@ -27,12 +34,12 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
 
   const results = query.trim() === ""
     ? []
-    : shopifyData.products.filter(p =>
-      p.title.toLowerCase().includes(query.toLowerCase()) ||
-      p.product_type.toLowerCase().includes(query.toLowerCase())
+    : dbProducts.filter(p =>
+      p.title?.toLowerCase().includes(query.toLowerCase()) ||
+      p.slug?.toLowerCase().includes(query.toLowerCase())
     ).slice(0, 6);
 
-  const popularSearches = ["Snack Packs", "Jerseys", "Accessories", "New Arrivals"];
+  const popularSearches = ["Regimen", "Cleanser", "Moisturizer", "Serum"];
 
   return (
     <AnimatePresence>
@@ -106,29 +113,29 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
                         {results.map(product => (
                           <Link
                             key={product.id}
-                            href={`/shop/${product.handle}`}
+                            href={`/shop/${product.slug}`}
                             onClick={onClose}
                             className="flex gap-4 group"
                           >
-                            <div className="relative w-16 h-20 bg-[#f4f4f4] overflow-hidden shrink-0">
+                            <div className="relative w-16 h-20 bg-[#f4f4f4] overflow-hidden shrink-0 rounded-md">
                               <Image
-                                src={product.images[0]?.src || "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=2000&auto=format&fit=crop"}
+                                src={product.image_url || "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=2000&auto=format&fit=crop"}
                                 alt={product.title}
                                 fill
-                                className="object-contain mix-blend-multiply transition-transform duration-700 group-hover:scale-110"
+                                className="object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-110"
                               />
                             </div>
                             <div className="flex flex-col justify-center gap-1">
-                              <span className="text-sm font-light text-stone-900 group-hover:text-stone-400 transition-colors">{product.title}</span>
-                              <span className="text-xs text-stone-400">${product.variants[0].price}</span>
+                              <span className="text-sm font-medium text-stone-900 group-hover:text-stone-400 transition-colors">{product.title}</span>
+                              <span className="text-xs text-stone-500">${product.price}</span>
                             </div>
                           </Link>
                         ))}
-                        {shopifyData.products.length > 6 && (
+                        {dbProducts.length > 6 && (
                           <Link
                             href="/shop"
                             onClick={onClose}
-                            className="text-xs uppercase tracking-widest font-medium border-b border-stone-900 self-start pb-1 mt-4"
+                            className="text-xs uppercase tracking-widest font-medium border-b border-stone-900 self-start pb-1 mt-4 hover:text-stone-500 hover:border-stone-500 transition-colors"
                           >
                             View All Results
                           </Link>
