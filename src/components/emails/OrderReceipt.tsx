@@ -43,7 +43,7 @@ export const OrderReceipt = ({
     <Body style={main}>
       <Container style={container}>
         <Section style={header}>
-          <Text style={logoText}>FLEÑJURE</Text>
+          <Text style={logoText}>QUILCEUTICALS</Text>
         </Section>
         <Section style={content}>
           <Text style={greeting}>Hi {customerName},</Text>

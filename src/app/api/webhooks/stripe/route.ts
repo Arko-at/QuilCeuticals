@@ -122,7 +122,7 @@ export async function POST(req: Request) {
       });
     }
 
-    // 3. Send Email Receipt via Zoho Nodemailer
+    // 3. Send Email Receipt via ZeptoMail
     try {
       // 3a. Send to Customer
       await sendEmail({
@@ -139,7 +139,7 @@ export async function POST(req: Request) {
 
       // 3b. Send separate copy to Admin
       await sendEmail({
-        to: 'orders@quilceuticals.com',
+        to: 'order@quilceuticals.com',
         subject: `[NEW ORDER] QuilCeuticals #${orderId}`,
         isInternalAdminAlert: true,
         react: OrderReceipt({
@@ -151,7 +151,7 @@ export async function POST(req: Request) {
         }) as any,
       });
     } catch (emailError) {
-      console.error("Failed to send email via Zoho:", emailError);
+      console.error("Failed to send email via ZeptoMail:", emailError);
     }
   }
 
